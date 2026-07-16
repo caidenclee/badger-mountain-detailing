@@ -282,7 +282,7 @@
       <sc-for list="{{ tCards }}" as="t" hint-placeholder-count="3">
         <div style="flex: 0 0 min(400px, 84vw); scroll-snap-align: start; background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.10); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
           <sc-if value="{{ t.img }}" hint-placeholder-val="{{ true }}">
-            <img src="{{ t.img }}" alt="{{ t.alt }}" loading="lazy" style="width: 100%; height: 210px; object-fit: cover; display: block;">
+            <img src="{{ t.img }}" alt="{{ t.alt }}" loading="lazy" style="width: 100%; height: 210px; object-fit: cover; object-position: {{ t.pos }}; display: block;">
           </sc-if>
           <div style="padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
             <div style="color: #8ab4d8; font-size: 17px; letter-spacing: 4px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -613,9 +613,9 @@ class Component extends DCLogic {
       ? { bg: 'linear-gradient(160deg, #e8edf2, #aebac6)', fg: '#0d0f12', bc: 'rgba(255,255,255,0.5)' }
       : { bg: 'rgba(255,255,255,0.04)', fg: '#aeb6bf', bc: 'rgba(255,255,255,0.14)' };
     const quotes = [
-      { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour" },
-      { quote: "The guys with Badger Mountain Detailing were amazing! Really hard-working young men. I didn’t know what to expect as they are younger than anyone I’ve hired. They impressed me with their work ethic! I’ve had my car detailed many times by professionals, and they were just as professional as anyone else I’ve used! My car was as good as new, and their price was better than anyone else!", name: 'Andrea L.', city: 'Customer review', img: null, alt: '' },
-      { quote: "They did great on my Audi it was so awesome to see it look brand new again, they’re the best my car has ever seen. You already know I’ll be using them again!", name: 'Ammon G.', city: 'Customer review', img: 'uploads/ammon-quarter-hd.jpg', alt: "Ammon's detailed Audi A5 gleaming in the driveway" },
+      { quote: "They did great on my Audi it was so awesome to see it look brand new again, they’re the best my car has ever seen. You already know I’ll be using them again!", name: 'Ammon G.', city: 'Customer review', img: 'uploads/ammon-quarter-hd.jpg', alt: "Ammon's detailed Audi A5 gleaming in the driveway", pos: 'center 62%' },
+      { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour", pos: 'center 58%' },
+      { quote: "The guys with Badger Mountain Detailing were amazing! Really hard-working young men. I didn’t know what to expect as they are younger than anyone I’ve hired. They impressed me with their work ethic! I’ve had my car detailed many times by professionals, and they were just as professional as anyone else I’ve used! My car was as good as new, and their price was better than anyone else!", name: 'Andrea L.', city: 'Customer review', img: null, alt: '', pos: 'center' },
     ];
     const tCards = quotes.map((q) => ({ ...q, noImg: !q.img }));
     const faqData = [
