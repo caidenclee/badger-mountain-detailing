@@ -666,8 +666,8 @@ class Component extends DCLogic {
     const pkgOpts = Object.keys(pkgNames).map((k) => ({ label: pkgNames[k], ...seg(this.state.pkg === k), pick: () => this.updateEst({ pkg: k }) }));
     const quotes = [
       { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour" },
-      { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder — Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
-      { quote: "Two kids, one dog, endless crumbs, and the interior looks brand new. Worth every penny. We'll be repeat customers in Pasco.", name: 'Placeholder — Jenna', city: 'Pasco, WA', img: 'uploads/debbie-trunk-after.jpg', alt: 'Spotless vacuumed cargo area after a full interior detail' },
+      { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder: Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
+      { quote: "Two kids, one dog, endless crumbs, and the interior looks brand new. Worth every penny. We'll be repeat customers in Pasco.", name: 'Placeholder: Jenna', city: 'Pasco, WA', img: 'uploads/debbie-trunk-after.jpg', alt: 'Spotless vacuumed cargo area after a full interior detail' },
     ];
     const tSlides = quotes.map((q, i) => ({ ...q, noImg: !q.img, op: this.state.tIdx === i ? 1 : 0, pe: this.state.tIdx === i ? 'auto' : 'none' }));
     const tDots = quotes.map((_, i) => ({ bg: this.state.tIdx === i ? '#8ab4d8' : 'rgba(255,255,255,0.18)', pick: () => { clearInterval(this._tTimer); this.setState({ tIdx: i }); } }));
