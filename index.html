@@ -705,7 +705,7 @@ class Component extends DCLogic {
       phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
       cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
       price1: p.ext + cerUp, price2: p.int + seatUp + petUp, price3: p.full + seatUp + petUp + cerUp, price3Was: 250 + seatUp + petUp + cerUp, pkgSeatOpts, addonOpts,
-      estDisp: this.state.estDisp, vehicleOpts, pkgOpts,
+      estDisp: this.state.estDisp, pkgOpts,
       tSlides, tDots, faqs,
       isMobile: this.state.isMobile, formPkg: this.state.formPkg,
       setFormPkg: (e) => this.setState({ formPkg: e.target.value }),
