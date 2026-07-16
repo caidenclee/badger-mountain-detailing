@@ -49,8 +49,6 @@
     input, select, textarea, button { font-family: 'Outfit', sans-serif; }
     @keyframes bmdShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
     @keyframes bmdHeroIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-    @keyframes bmdPulseRing { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.18); opacity: 0; } }
-    @keyframes bmdDot { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
     @keyframes bmdHeroFade { 0%, 20% { opacity: 1; } 26%, 94% { opacity: 0; } 100% { opacity: 1; } }
     @keyframes bmdRiseIn { from { opacity: 0; transform: translateY(46px) scale(0.98); filter: blur(10px); } 60% { filter: blur(0); } to { opacity: 1; transform: none; filter: none; } }
     @keyframes bmdPopIn { from { opacity: 0; transform: translateY(26px) scale(0.85); } to { opacity: 1; transform: none; } }
@@ -218,53 +216,23 @@
     </div>
   </section>
 
-  <!-- 8. SERVICE AREA MAP -->
-  <section id="area" data-screen-label="Service area map" style="padding: 90px 24px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
-    <div style="max-width: 980px; margin: 0 auto;">
-      <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Proudly Serving the Tri&#8209;Cities and Surrounding Areas</h2>
-      <p data-reveal style="margin: 0 auto 48px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 17px; max-width: 640px;">Mobile detailing delivered within 20 miles of the Tri&#8209;Cities: Kennewick, Richland, Pasco, West Richland, Benton City, Finley, Burbank, and beyond.</p>
-      <div data-reveal style="perspective: 1200px;">
-        <div id="map-panel" style="position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: radial-gradient(ellipse at 45% 40%, #121722 0%, #0b0d11 70%); box-shadow: 0 24px 80px rgba(0,0,0,0.55); transition: transform .2s ease-out; will-change: transform;">
-          <svg viewBox="0 0 800 560" style="display: block; width: 100%; height: auto;" role="img" aria-label="Stylized map of the Tri-Cities service area with a 20 mile radius">
-            <defs>
-              <filter id="riverGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4" result="b"></feGaussianBlur>
-                <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
-              </filter>
-            </defs>
-            <circle cx="430" cy="260" r="228" fill="rgba(120,170,215,0.05)"></circle>
-            <circle cx="430" cy="260" r="228" fill="none" stroke="rgba(150,195,235,0.55)" stroke-width="1.5" stroke-dasharray="10 9"></circle>
-            <circle cx="430" cy="260" r="228" fill="none" stroke="rgba(150,195,235,0.35)" stroke-width="1.5" style="animation: bmdPulseRing 3.6s ease-out infinite; transform-box: fill-box; transform-origin: center;"></circle>
-            <path d="M 330 0 C 342 80, 350 140, 380 212 C 412 284, 500 300, 598 310 C 660 316, 706 332, 756 372" fill="none" stroke="rgba(130,180,225,0.8)" stroke-width="5" stroke-linecap="round" filter="url(#riverGlow)"></path>
-            <path d="M 36 262 C 140 250, 262 240, 374 224" fill="none" stroke="rgba(130,180,225,0.55)" stroke-width="3.5" stroke-linecap="round" filter="url(#riverGlow)"></path>
-            <path d="M 800 176 C 732 216, 686 268, 636 306" fill="none" stroke="rgba(130,180,225,0.55)" stroke-width="3.5" stroke-linecap="round" filter="url(#riverGlow)"></path>
-            <text x="300" y="96" fill="rgba(150,190,225,0.5)" font-size="12" font-family="Outfit" transform="rotate(72 300 96)">Columbia River</text>
-            <text x="70" y="288" fill="rgba(150,190,225,0.45)" font-size="12" font-family="Outfit">Yakima River</text>
-            <text x="690" y="228" fill="rgba(150,190,225,0.45)" font-size="12" font-family="Outfit" transform="rotate(-32 690 228)">Snake River</text>
-            <g><circle cx="300" cy="190" r="9" fill="#a9cdec" style="animation: bmdDot 2.6s ease-in-out infinite;"><title>Richland</title></circle>
-              <circle cx="300" cy="190" r="16" fill="none" stroke="rgba(170,205,236,0.4)" stroke-width="1.5"></circle>
-              <text x="300" y="162" fill="#dfe8f1" font-size="18" font-weight="600" font-family="Outfit" text-anchor="middle">Richland</text></g>
-            <g><circle cx="520" cy="170" r="9" fill="#a9cdec" style="animation: bmdDot 2.6s ease-in-out infinite .5s;"><title>Pasco</title></circle>
-              <circle cx="520" cy="170" r="16" fill="none" stroke="rgba(170,205,236,0.4)" stroke-width="1.5"></circle>
-              <text x="520" y="142" fill="#dfe8f1" font-size="18" font-weight="600" font-family="Outfit" text-anchor="middle">Pasco</text></g>
-            <g><circle cx="410" cy="330" r="9" fill="#a9cdec" style="animation: bmdDot 2.6s ease-in-out infinite 1s;"><title>Kennewick</title></circle>
-              <circle cx="410" cy="330" r="16" fill="none" stroke="rgba(170,205,236,0.4)" stroke-width="1.5"></circle>
-              <text x="410" y="368" fill="#dfe8f1" font-size="18" font-weight="600" font-family="Outfit" text-anchor="middle">Kennewick</text></g>
-            <g fill="rgba(190,205,218,0.55)" font-size="13" font-family="Outfit">
-              <circle cx="222" cy="176" r="5" fill="rgba(170,205,236,0.5)"><title>West Richland</title></circle><text x="210" y="200" text-anchor="middle">West Richland</text>
-              <circle cx="112" cy="232" r="5" fill="rgba(170,205,236,0.5)"><title>Benton City</title></circle><text x="112" y="212" text-anchor="middle">Benton City</text>
-              <circle cx="510" cy="398" r="5" fill="rgba(170,205,236,0.5)"><title>Finley</title></circle><text x="510" y="422" text-anchor="middle">Finley</text>
-              <circle cx="648" cy="336" r="5" fill="rgba(170,205,236,0.5)"><title>Burbank</title></circle><text x="648" y="360" text-anchor="middle">Burbank</text>
-            </g>
-            <g><path d="M 296 432 L 316 402 L 328 418 L 338 404 L 356 432 Z" fill="none" stroke="rgba(200,214,226,0.7)" stroke-width="2" stroke-linejoin="round"></path>
-              <text x="326" y="454" fill="rgba(200,214,226,0.7)" font-size="13" font-family="Outfit" text-anchor="middle">Badger Mtn</text></g>
-          </svg>
-          <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px;">
-            <div style="background: rgba(14,18,24,0.8); backdrop-filter: blur(6px); border: 1px solid rgba(150,195,235,0.4); color: #cfe0ef; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 18px; border-radius: 999px; white-space: nowrap;">20&#8209;mile service radius</div>
-            <div style="color: #8b939c; font-size: 13px; font-weight: 300;">We come to you, anywhere in the circle.</div>
-          </div>
-        </div>
+  <!-- 8. SERVICE AREA -->
+  <section id="area" data-screen-label="Service area" style="padding: 90px 24px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 880px; margin: 0 auto; text-align: center;">
+      <h2 data-reveal style="margin: 0 0 12px; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Proudly Serving the Tri&#8209;Cities</h2>
+      <p data-reveal style="margin: 0 auto 44px; color: #9aa3ad; font-weight: 300; font-size: 17px; max-width: 560px;">Fully mobile within 20 miles. If you're in the area, we come to you.</p>
+      <div data-reveal style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 16px;">
+        <span style="padding: 16px 34px; border-radius: 999px; font-size: 19px; font-weight: 600; color: #f2f4f6; background: rgba(138,180,216,0.10); border: 1px solid rgba(138,180,216,0.45);">Kennewick</span>
+        <span style="padding: 16px 34px; border-radius: 999px; font-size: 19px; font-weight: 600; color: #f2f4f6; background: rgba(138,180,216,0.10); border: 1px solid rgba(138,180,216,0.45);">Richland</span>
+        <span style="padding: 16px 34px; border-radius: 999px; font-size: 19px; font-weight: 600; color: #f2f4f6; background: rgba(138,180,216,0.10); border: 1px solid rgba(138,180,216,0.45);">Pasco</span>
       </div>
+      <div data-reveal style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <span style="padding: 11px 24px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #aeb6bf; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14);">West Richland</span>
+        <span style="padding: 11px 24px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #aeb6bf; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14);">Benton City</span>
+        <span style="padding: 11px 24px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #aeb6bf; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14);">Finley</span>
+        <span style="padding: 11px 24px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #aeb6bf; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14);">Burbank</span>
+      </div>
+      <p data-reveal style="margin: 30px auto 0; color: #7b838c; font-size: 15px; font-weight: 300;">Somewhere else nearby? <a href="{{ smsHref }}" style="color: #8ab4d8; font-weight: 600;">Text us your address</a> and we'll confirm.</p>
     </div>
   </section>
 
@@ -559,18 +527,6 @@ class Component extends DCLogic {
         const up = () => { wrap.removeEventListener('pointermove', mv); wrap.removeEventListener('pointerup', up); };
         wrap.addEventListener('pointermove', mv); wrap.addEventListener('pointerup', up);
       });
-    }
-    // map parallax (desktop, fine pointer only)
-    const panel = document.getElementById('map-panel');
-    if (panel && window.matchMedia('(pointer: fine)').matches) {
-      const parent = panel.parentElement;
-      parent.addEventListener('mousemove', (e) => {
-        if (window.innerWidth < 900) return;
-        const r = panel.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        panel.style.transform = `rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
-      });
-      parent.addEventListener('mouseleave', () => { panel.style.transform = 'none'; });
     }
     // hero work carousel — 5 visible squares, center highlighted, advances every 3s
     const strip = document.getElementById('work-strip');
