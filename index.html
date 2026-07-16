@@ -162,7 +162,13 @@
   <section id="services" data-screen-label="Services" style="padding: 90px 24px 70px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
     <div style="max-width: 1100px; margin: 0 auto;">
       <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Detailing Packages</h2>
-      <p data-reveal style="margin: 0 auto 56px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 520px;">Premium products, professional results — at your driveway.</p>
+      <p data-reveal style="margin: 0 auto 30px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 520px;">Premium products, professional results — at your driveway.</p>
+      <div data-reveal style="display: flex; align-items: center; justify-content: center; gap: 10px 14px; flex-wrap: wrap; margin: 0 0 46px;">
+        <span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Seats</span>
+        <sc-for list="{{ pkgSeatOpts }}" as="s" hint-placeholder-count="4">
+          <button onClick="{{ s.pick }}" style="padding: 10px 22px; border-radius: 999px; cursor: pointer; font-size: 15px; font-weight: 600; transition: all .25s ease; background: {{ s.bg }}; color: {{ s.fg }}; border: 1px solid {{ s.bc }};" style-hover="border-color: #8ab4d8;">{{ s.label }}</button>
+        </sc-for>
+      </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; align-items: stretch;">
         <div data-reveal data-delay="0" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 40px 32px; display: flex; flex-direction: column; gap: 18px; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;" style-hover="transform: scale(1.02); border-color: rgba(200,215,230,0.45); box-shadow: 0 12px 44px rgba(150,180,210,0.12);">
           <img src="uploads/stock-exterior-wash.jpg" alt="Foam wash on an SUV rear quarter panel" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; object-position: center 55%; border-radius: 12px;">
@@ -187,7 +193,11 @@
           <img src="uploads/stock-full-shine.jpg" alt="Hand polishing a glossy trunk lid with a sponge" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; object-position: center 40%; border-radius: 12px;">
           <h3 style="margin: 0; font-size: 24px; font-weight: 600; color: #f2f4f6;">Full Detail</h3>
           <div><div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Starting at</div>
-          <div style="font-size: 38px; font-weight: 800; background: linear-gradient(110deg, #cfe0ef, #ffffff, #8ab4d8); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: bmdShine 6s linear infinite;">${{ price3 }}</div></div>
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <span style="font-size: 22px; font-weight: 600; color: #7b838c; text-decoration: line-through;">${{ price3Was }}</span>
+            <span style="font-size: 38px; font-weight: 800; background: linear-gradient(110deg, #cfe0ef, #ffffff, #8ab4d8); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: bmdShine 6s linear infinite;">${{ price3 }}</span>
+          </div>
+          <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8ab4d8; font-weight: 700; margin-top: 4px;">Summer deal — limited time</div></div>
           <ul style="margin: 0; padding: 0 0 0 18px; color: #aeb6bf; font-weight: 300; line-height: 2;">
             <li>Everything in both packages</li><li>Clay bar treatment</li><li>Wax or sealant</li>
           </ul>
@@ -195,9 +205,8 @@
       </div>
       <div data-reveal style="margin: 30px auto 0; display: flex; justify-content: center; align-items: center; gap: 10px 14px; flex-wrap: wrap;">
         <span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Add-ons</span>
-        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Pet hair removal</span>
-        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Headlight restoration</span>
-        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Ceramic coating</span>
+        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Pet hair removal — $70</span>
+        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Ceramic coating — $200</span>
       </div>
       <p data-reveal style="margin: 20px auto 0; text-align: center; color: #7b838c; font-size: 14px; font-weight: 300;">Final price depends on vehicle size and condition. Text a photo of your vehicle for an exact quote.</p>
     </div>
@@ -500,7 +509,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5095183151&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business&quot;},&quot;carsDetailed&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:150,&quot;min&quot;:0,&quot;max&quot;:10000,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;rating&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:5.0,&quot;min&quot;:1,&quot;max&quot;:5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;yearsServing&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;price1&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:114,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;price2&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:169,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;price3&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:199,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;}}">
 class Component extends DCLogic {
-  state = { vehicle: 'SUV', pkg: 'full', estDisp: 0, faqOpen: 0, tIdx: 0, isMobile: false, formPkg: 'Full Detail', bkOpen: false, bkStep: 1, bkType: null, bkSeats: null, bkScope: null };
+  state = { vehicle: 'SUV', pkg: 'full', estDisp: 0, faqOpen: 0, tIdx: 0, isMobile: false, formPkg: 'Full Detail', bkOpen: false, bkStep: 1, bkType: null, bkSeats: null, bkScope: null, pkgSeats: 5 };
 
   prices() {
     return { ext: this.props.price1 ?? 114, int: this.props.price2 ?? 169, full: this.props.price3 ?? 199 };
@@ -670,10 +679,13 @@ class Component extends DCLogic {
     const bkSeatsPhrase = this.state.bkSeats === '7+' ? '7+ seat' : `${this.state.bkSeats}-seater`;
     const bkMsg = `Hey! I'm interested in getting ${bkScopePhrase} on my ${bkSeatsPhrase} ${(this.state.bkType || 'car').toLowerCase()}.`;
     const bkStepLabel = { 1: 'Step 1 of 3 — Vehicle', 2: 'Step 2 of 3 — Seats', 3: 'Step 3 of 3 — Service', 4: 'Ready to send' }[this.state.bkStep];
+    // package seat selector: +$30 per seat above 5 on interior-related packages
+    const seatUp = (this.state.pkgSeats - 5) * 30;
+    const pkgSeatOpts = [5, 6, 7, 8].map((n) => ({ label: `${n} seats`, ...seg(this.state.pkgSeats === n), pick: () => this.setState({ pkgSeats: n }) }));
     return {
       phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
       cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
-      price1: p.ext, price2: p.int, price3: p.full,
+      price1: p.ext, price2: p.int + seatUp, price3: p.full + seatUp, price3Was: 250 + seatUp, pkgSeatOpts,
       estDisp: this.state.estDisp, vehicleOpts, pkgOpts,
       tSlides, tDots, faqs,
       isMobile: this.state.isMobile, formPkg: this.state.formPkg,
