@@ -307,11 +307,6 @@
           <sc-if value="{{ t.img }}" hint-placeholder-val="{{ true }}">
             <img src="{{ t.img }}" alt="{{ t.alt }}" loading="lazy" style="width: 100%; height: 210px; object-fit: cover; display: block;">
           </sc-if>
-          <sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ false }}">
-            <div style="width: 100%; height: 210px; background: repeating-linear-gradient(45deg, #12151a 0 12px, #0e1116 12px 24px); display: flex; align-items: center; justify-content: center;">
-              <span style="font-family: ui-monospace, monospace; font-size: 12px; color: #5d656e;">customer car photo</span>
-            </div>
-          </sc-if>
           <div style="padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
             <div style="color: #8ab4d8; font-size: 17px; letter-spacing: 4px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p style="margin: 0; font-size: 17px; font-weight: 300; line-height: 1.6; color: #d6dbe0; flex: 1;">"{{ t.quote }}"</p>
@@ -323,7 +318,7 @@
         </div>
       </sc-for>
     </div>
-    <p style="margin: 18px auto 0; text-align: center; color: #5d656e; font-size: 12px; font-family: ui-monospace, monospace;">two placeholder reviews remain. Send real ones and they'll be swapped in</p>
+    <p style="margin: 18px auto 0; text-align: center; color: #5d656e; font-size: 12px; font-family: ui-monospace, monospace;">one placeholder review remains. Send a real one and it'll be swapped in</p>
   </section>
 
   <!-- 9b. ABOUT -->
@@ -643,7 +638,7 @@ class Component extends DCLogic {
       : { bg: 'rgba(255,255,255,0.04)', fg: '#aeb6bf', bc: 'rgba(255,255,255,0.14)' };
     const quotes = [
       { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour" },
-      { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder: Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
+      { quote: "The guys with Badger Mountain Detailing were amazing! Really hard-working young men. I didn’t know what to expect as they are younger than anyone I’ve hired. They impressed me with their work ethic! I’ve had my car detailed many times by professionals, and they were just as professional as anyone else I’ve used! My car was as good as new, and their price was better than anyone else!", name: 'Andrea L.', city: 'Customer review', img: null, alt: '' },
       { quote: "Two kids, one dog, endless crumbs, and the interior looks brand new. Worth every penny. We'll be repeat customers in Pasco.", name: 'Placeholder: Jenna', city: 'Pasco, WA', img: 'uploads/debbie-trunk-after.jpg', alt: 'Spotless vacuumed cargo area after a full interior detail' },
     ];
     const tCards = quotes.map((q) => ({ ...q, noImg: !q.img }));
