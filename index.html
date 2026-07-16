@@ -373,20 +373,23 @@
         <input id="bk-phone" required type="tel" placeholder="Phone" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
       </div>
       <input id="bk-vehicle" required placeholder="Vehicle year, make and model" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
-      <div style="display: flex; flex-direction: column; gap: 12px;">
-        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">How many seats?</div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <sc-for list="{{ pkgSeatOpts }}" as="s" hint-placeholder-count="4">
-            <button type="button" onClick="{{ s.pick }}" style="padding: 11px 24px; border-radius: 999px; cursor: pointer; font-size: 15px; font-weight: 600; transition: all .25s ease; background: {{ s.bg }}; color: {{ s.fg }}; border: 1px solid {{ s.bc }};" style-hover="border-color: #8ab4d8;">{{ s.label }}</button>
-          </sc-for>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">How many seats?</div>
+          <select id="bk-seats" value="{{ pkgSeatsSel }}" onChange="{{ setSeats }}" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease; appearance: none;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+            <option value="5">5 seats</option>
+            <option value="6">6 seats</option>
+            <option value="7">7 seats</option>
+            <option value="8">8 seats</option>
+          </select>
         </div>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 12px;">
-        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Package</div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <sc-for list="{{ pkgOpts }}" as="p" hint-placeholder-count="3">
-            <button type="button" onClick="{{ p.pick }}" style="padding: 11px 24px; border-radius: 999px; cursor: pointer; font-size: 15px; font-weight: 600; transition: all .25s ease; background: {{ p.bg }}; color: {{ p.fg }}; border: 1px solid {{ p.bc }};" style-hover="border-color: #8ab4d8;">{{ p.label }}</button>
-          </sc-for>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Package</div>
+          <select id="bk-pkg" value="{{ pkgSel }}" onChange="{{ setPkg }}" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease; appearance: none;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+            <option value="full">Full Detail</option>
+            <option value="int">Interior Revival</option>
+            <option value="ext">Exterior Refresh</option>
+          </select>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -638,8 +641,6 @@ class Component extends DCLogic {
     const seg = (active) => active
       ? { bg: 'linear-gradient(160deg, #e8edf2, #aebac6)', fg: '#0d0f12', bc: 'rgba(255,255,255,0.5)' }
       : { bg: 'rgba(255,255,255,0.04)', fg: '#aeb6bf', bc: 'rgba(255,255,255,0.14)' };
-    const pkgNames = { ext: 'Exterior Refresh', int: 'Interior Revival', full: 'Full Detail' };
-    const pkgOpts = Object.keys(pkgNames).map((k) => ({ label: pkgNames[k], ...seg(this.state.pkg === k), pick: () => this.updateEst({ pkg: k }) }));
     const quotes = [
       { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour" },
       { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder: Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
@@ -668,7 +669,6 @@ class Component extends DCLogic {
     const bkStepLabel = { 1: 'Step 1 of 3: Vehicle', 2: 'Step 2 of 3: Seats', 3: 'Step 3 of 3: Service', 4: 'Ready to send' }[this.state.bkStep];
     // package seat selector: +$30 per seat above 5 on interior-related packages
     const seatUp = (this.state.pkgSeats - 5) * 30;
-    const pkgSeatOpts = [5, 6, 7, 8].map((n) => ({ label: `${n} seats`, ...seg(this.state.pkgSeats === n), pick: () => this.updateEst({ pkgSeats: n }) }));
     // add-on toggles: pet hair on interior-related, ceramic on exterior-related packages
     const petUp = this.state.addPet ? 70 : 0;
     const cerUp = this.state.addCeramic ? 200 : 0;
@@ -679,8 +679,11 @@ class Component extends DCLogic {
     return {
       phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
       cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
-      price1: p.ext + cerUp, price2: p.int + petUp, price3: p.full + petUp + cerUp, price3Was: 250 + petUp + cerUp, pkgSeatOpts, addonOpts,
-      estDisp: this.state.estDisp, pkgOpts,
+      price1: p.ext + cerUp, price2: p.int + petUp, price3: p.full + petUp + cerUp, price3Was: 250 + petUp + cerUp, addonOpts,
+      pkgSeatsSel: String(this.state.pkgSeats), pkgSel: this.state.pkg,
+      setSeats: (e) => this.updateEst({ pkgSeats: +e.target.value }),
+      setPkg: (e) => this.updateEst({ pkg: e.target.value }),
+      estDisp: this.state.estDisp,
       tCards, faqs,
       revPrev: () => { const el = document.getElementById('rev-scroll'); if (el) el.scrollBy({ left: -420, behavior: 'smooth' }); },
       revNext: () => { const el = document.getElementById('rev-scroll'); if (el) el.scrollBy({ left: 420, behavior: 'smooth' }); },
