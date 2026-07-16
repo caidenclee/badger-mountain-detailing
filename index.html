@@ -205,8 +205,9 @@
       </div>
       <div data-reveal style="margin: 30px auto 0; display: flex; justify-content: center; align-items: center; gap: 10px 14px; flex-wrap: wrap;">
         <span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Add-ons</span>
-        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Pet hair removal — $70</span>
-        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Ceramic coating — $200</span>
+        <sc-for list="{{ addonOpts }}" as="a" hint-placeholder-count="2">
+          <button onClick="{{ a.pick }}" style="padding: 10px 22px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all .25s ease; background: {{ a.bg }}; color: {{ a.fg }}; border: 1px solid {{ a.bc }};" style-hover="border-color: #8ab4d8;">{{ a.label }}</button>
+        </sc-for>
       </div>
       <p data-reveal style="margin: 20px auto 0; text-align: center; color: #7b838c; font-size: 14px; font-weight: 300;">Final price depends on vehicle size and condition. Text a photo of your vehicle for an exact quote.</p>
     </div>
@@ -509,7 +510,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5095183151&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business&quot;},&quot;carsDetailed&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:150,&quot;min&quot;:0,&quot;max&quot;:10000,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;rating&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:5.0,&quot;min&quot;:1,&quot;max&quot;:5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;yearsServing&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;price1&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:114,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;price2&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:169,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;price3&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:199,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;}}">
 class Component extends DCLogic {
-  state = { vehicle: 'SUV', pkg: 'full', estDisp: 0, faqOpen: 0, tIdx: 0, isMobile: false, formPkg: 'Full Detail', bkOpen: false, bkStep: 1, bkType: null, bkSeats: null, bkScope: null, pkgSeats: 5 };
+  state = { vehicle: 'SUV', pkg: 'full', estDisp: 0, faqOpen: 0, tIdx: 0, isMobile: false, formPkg: 'Full Detail', bkOpen: false, bkStep: 1, bkType: null, bkSeats: null, bkScope: null, pkgSeats: 5, addPet: false, addCeramic: false };
 
   prices() {
     return { ext: this.props.price1 ?? 114, int: this.props.price2 ?? 169, full: this.props.price3 ?? 199 };
@@ -682,10 +683,17 @@ class Component extends DCLogic {
     // package seat selector: +$30 per seat above 5 on interior-related packages
     const seatUp = (this.state.pkgSeats - 5) * 30;
     const pkgSeatOpts = [5, 6, 7, 8].map((n) => ({ label: `${n} seats`, ...seg(this.state.pkgSeats === n), pick: () => this.setState({ pkgSeats: n }) }));
+    // add-on toggles: pet hair on interior-related, ceramic on exterior-related packages
+    const petUp = this.state.addPet ? 70 : 0;
+    const cerUp = this.state.addCeramic ? 200 : 0;
+    const addonOpts = [
+      { label: 'Pet hair removal — $70', ...seg(this.state.addPet), pick: () => this.setState({ addPet: !this.state.addPet }) },
+      { label: 'Ceramic coating — $200', ...seg(this.state.addCeramic), pick: () => this.setState({ addCeramic: !this.state.addCeramic }) },
+    ];
     return {
       phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
       cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
-      price1: p.ext, price2: p.int + seatUp, price3: p.full + seatUp, price3Was: 250 + seatUp, pkgSeatOpts,
+      price1: p.ext + cerUp, price2: p.int + seatUp + petUp, price3: p.full + seatUp + petUp + cerUp, price3Was: 250 + seatUp + petUp + cerUp, pkgSeatOpts, addonOpts,
       estDisp: this.state.estDisp, vehicleOpts, pkgOpts,
       tSlides, tDots, faqs,
       isMobile: this.state.isMobile, formPkg: this.state.formPkg,
