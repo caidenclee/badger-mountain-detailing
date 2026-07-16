@@ -55,6 +55,8 @@
     @keyframes bmdRiseIn { from { opacity: 0; transform: translateY(46px) scale(0.98); filter: blur(10px); } 60% { filter: blur(0); } to { opacity: 1; transform: none; filter: none; } }
     @keyframes bmdPopIn { from { opacity: 0; transform: translateY(26px) scale(0.85); } to { opacity: 1; transform: none; } }
     @keyframes bmdPanelIn { from { opacity: 0; transform: translateX(70px) scale(0.95) rotate(1.2deg); } to { opacity: 1; transform: none; } }
+    .rev-scroll { scrollbar-width: none; }
+    .rev-scroll::-webkit-scrollbar { display: none; }
     @keyframes bmdHeaderIn { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: none; } }
     .bmd-line { display: block; animation: bmdRiseIn .9s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .bmd-line:nth-child(1) { animation-delay: .05s; }
@@ -341,34 +343,37 @@
   </section>
 
   <!-- 9. TESTIMONIALS -->
-  <section data-screen-label="Testimonials" style="padding: 100px 24px; max-width: 860px; margin: 0 auto;">
-    <h2 data-reveal style="margin: 0 0 48px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">What Tri&#8209;Cities Drivers Say</h2>
-    <div data-reveal style="position: relative; min-height: 340px;">
-      <sc-for list="{{ tSlides }}" as="t" hint-placeholder-count="1">
-        <div style="position: absolute; inset: 0; display: flex; gap: 32px; align-items: center; flex-wrap: wrap; justify-content: center; opacity: {{ t.op }}; transition: opacity .8s ease; pointer-events: {{ t.pe }};">
-          <div style="width: 240px; height: 240px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0; background: repeating-linear-gradient(45deg, #12151a 0 12px, #0e1116 12px 24px); display: flex; align-items: center; justify-content: center;">
-            <sc-if value="{{ t.img }}" hint-placeholder-val="{{ false }}">
-              <img src="{{ t.img }}" alt="{{ t.alt }}" style="width: 240px; height: 240px; object-fit: cover;">
-            </sc-if>
-            <sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ false }}">
-              <span style="font-family: ui-monospace, monospace; font-size: 12px; color: #5d656e; text-align: center; padding: 12px;">customer car photo</span>
-            </sc-if>
-          </div>
-          <div style="flex: 1; min-width: 260px; max-width: 480px;">
-            <div style="color: #8ab4d8; font-size: 20px; letter-spacing: 4px;">★★★★★</div>
-            <p style="margin: 16px 0 18px; font-size: 20px; font-weight: 300; line-height: 1.65; color: #d6dbe0; text-wrap: pretty;">"{{ t.quote }}"</p>
-            <div style="font-weight: 600; color: #f2f4f6;">{{ t.name }}</div>
-            <div style="color: #7b838c; font-size: 14px; font-weight: 300;">{{ t.city }}</div>
+  <section data-screen-label="Testimonials" style="padding: 100px 24px; max-width: 1160px; margin: 0 auto;">
+    <div data-reveal style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px;">
+      <h2 style="margin: 0; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">What Tri&#8209;Cities Drivers Say</h2>
+      <div style="display: flex; gap: 10px;">
+        <button onClick="{{ revPrev }}" aria-label="Previous reviews" style="width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.22); color: #e8eaed; font-size: 18px; cursor: pointer; transition: border-color .25s ease;" style-hover="border-color: #8ab4d8;">&larr;</button>
+        <button onClick="{{ revNext }}" aria-label="Next reviews" style="width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.22); color: #e8eaed; font-size: 18px; cursor: pointer; transition: border-color .25s ease;" style-hover="border-color: #8ab4d8;">&rarr;</button>
+      </div>
+    </div>
+    <div id="rev-scroll" class="rev-scroll" data-reveal style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 16px; -webkit-overflow-scrolling: touch;">
+      <sc-for list="{{ tCards }}" as="t" hint-placeholder-count="3">
+        <div style="flex: 0 0 min(400px, 84vw); scroll-snap-align: start; background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.10); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+          <sc-if value="{{ t.img }}" hint-placeholder-val="{{ true }}">
+            <img src="{{ t.img }}" alt="{{ t.alt }}" loading="lazy" style="width: 100%; height: 210px; object-fit: cover; display: block;">
+          </sc-if>
+          <sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ false }}">
+            <div style="width: 100%; height: 210px; background: repeating-linear-gradient(45deg, #12151a 0 12px, #0e1116 12px 24px); display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: ui-monospace, monospace; font-size: 12px; color: #5d656e;">customer car photo</span>
+            </div>
+          </sc-if>
+          <div style="padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+            <div style="color: #8ab4d8; font-size: 17px; letter-spacing: 4px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style="margin: 0; font-size: 17px; font-weight: 300; line-height: 1.6; color: #d6dbe0; flex: 1;">"{{ t.quote }}"</p>
+            <div>
+              <div style="font-weight: 600; color: #f2f4f6;">{{ t.name }}</div>
+              <div style="color: #7b838c; font-size: 14px; font-weight: 300;">{{ t.city }}</div>
+            </div>
           </div>
         </div>
       </sc-for>
     </div>
-    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 28px;">
-      <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="3">
-        <button onClick="{{ d.pick }}" aria-label="Show testimonial" style="width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; padding: 0; transition: background .3s ease; background: {{ d.bg }};"></button>
-      </sc-for>
-    </div>
-    <p style="margin: 24px auto 0; text-align: center; color: #5d656e; font-size: 12px; font-family: ui-monospace, monospace;">two placeholder reviews remain. Send real ones and they'll be swapped in</p>
+    <p style="margin: 18px auto 0; text-align: center; color: #5d656e; font-size: 12px; font-family: ui-monospace, monospace;">two placeholder reviews remain. Send real ones and they'll be swapped in</p>
   </section>
 
   <!-- 9b. ABOUT -->
@@ -449,7 +454,7 @@
       <div>
         <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6d757e; font-weight: 600; margin-bottom: 14px;">Contact</div>
         <a href="{{ smsHref }}" style="color: #cfe0ef; font-weight: 600; font-size: 17px;">{{ phoneDisplay }}</a>
-        <div style="color: #7b838c; font-size: 14px; font-weight: 300; margin-top: 12px;">By appointment, 7 days a week.<br>We accept Venmo, cash, and check<br>after the job is done.</div>
+        <div style="color: #7b838c; font-size: 14px; font-weight: 300; margin-top: 12px;">By appointment, 7 days a week.<br>We accept Venmo and cash<br>after the job is done.</div>
         <button onClick="{{ openBook }}" style="margin-top: 18px; display: inline-flex; align-items: center; padding: 13px 30px; border-radius: 999px; background: #ffffff; color: #0d0f12; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: transform .25s ease;" style-hover="transform: translateY(-2px); color: #0d0f12;">Book a Detail</button>
       </div>
     </div>
@@ -649,10 +654,8 @@ class Component extends DCLogic {
       window.addEventListener('resize', () => layout(false));
       this._wsTimer = setInterval(() => { wIdx = (wIdx + 1) % n; layout(true); }, 3000);
     }
-    // testimonial autorotate
-    this._tTimer = setInterval(() => this.setState((s) => ({ tIdx: (s.tIdx + 1) % 3 })), 6000);
   }
-  componentWillUnmount() { clearInterval(this._tTimer); clearInterval(this._wsTimer); cancelAnimationFrame(this._raf); }
+  componentWillUnmount() { clearInterval(this._wsTimer); cancelAnimationFrame(this._raf); }
 
   renderVals() {
     const digits = String(this.props.phone ?? '5095183151').replace(/\D/g, '');
@@ -669,15 +672,14 @@ class Component extends DCLogic {
       { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder: Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
       { quote: "Two kids, one dog, endless crumbs, and the interior looks brand new. Worth every penny. We'll be repeat customers in Pasco.", name: 'Placeholder: Jenna', city: 'Pasco, WA', img: 'uploads/debbie-trunk-after.jpg', alt: 'Spotless vacuumed cargo area after a full interior detail' },
     ];
-    const tSlides = quotes.map((q, i) => ({ ...q, noImg: !q.img, op: this.state.tIdx === i ? 1 : 0, pe: this.state.tIdx === i ? 'auto' : 'none' }));
-    const tDots = quotes.map((_, i) => ({ bg: this.state.tIdx === i ? '#8ab4d8' : 'rgba(255,255,255,0.18)', pick: () => { clearInterval(this._tTimer); this.setState({ tIdx: i }); } }));
+    const tCards = quotes.map((q) => ({ ...q, noImg: !q.img }));
     const faqData = [
       ['Do I need to provide anything?', 'Just access to water and a power outlet. We bring everything else: all products, tools, and equipment.'],
       ['How long does a detail take?', "Around 3 hours on average, depending on your vehicle's size and condition. We'll give you a time estimate when you book."],
       ['Do I need to be home?', "Nope. As long as we can access your vehicle, water, and power, you can go about your day. We'll text you when it's done."],
       ['What if it rains?', "We'll reach out to reschedule at no charge. Weather happens, and we'd rather deliver a perfect detail than a rushed one."],
       ['Where do you go?', 'We serve the Tri-Cities and surrounding areas within a 20 mile radius, including Kennewick, Richland, Pasco, West Richland, Benton City, Finley, and Burbank.'],
-      ['How do I pay?', "We accept Venmo, cash, and check after the job is done and you've seen the results."],
+      ['How do I pay?', "We accept Venmo and cash after the job is done and you've seen the results."],
     ];
     const faqs = faqData.map(([q, a], i) => {
       const open = this.state.faqOpen === i;
@@ -706,7 +708,9 @@ class Component extends DCLogic {
       cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
       price1: p.ext + cerUp, price2: p.int + seatUp + petUp, price3: p.full + seatUp + petUp + cerUp, price3Was: 250 + seatUp + petUp + cerUp, pkgSeatOpts, addonOpts,
       estDisp: this.state.estDisp, pkgOpts,
-      tSlides, tDots, faqs,
+      tCards, faqs,
+      revPrev: () => { const el = document.getElementById('rev-scroll'); if (el) el.scrollBy({ left: -420, behavior: 'smooth' }); },
+      revNext: () => { const el = document.getElementById('rev-scroll'); if (el) el.scrollBy({ left: 420, behavior: 'smooth' }); },
       isMobile: this.state.isMobile, formPkg: this.state.formPkg,
       setFormPkg: (e) => this.setState({ formPkg: e.target.value }),
       scrollToBook: () => this.scrollToId('book'),
