@@ -165,12 +165,6 @@
     <div style="max-width: 1100px; margin: 0 auto;">
       <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Detailing Packages</h2>
       <p data-reveal style="margin: 0 auto 30px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 520px;">Premium products, professional results, right at your driveway.</p>
-      <div data-reveal style="display: flex; align-items: center; justify-content: center; gap: 10px 14px; flex-wrap: wrap; margin: 0 0 46px;">
-        <span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Seats</span>
-        <sc-for list="{{ pkgSeatOpts }}" as="s" hint-placeholder-count="4">
-          <button onClick="{{ s.pick }}" style="padding: 10px 22px; border-radius: 999px; cursor: pointer; font-size: 15px; font-weight: 600; transition: all .25s ease; background: {{ s.bg }}; color: {{ s.fg }}; border: 1px solid {{ s.bc }};" style-hover="border-color: #8ab4d8;">{{ s.label }}</button>
-        </sc-for>
-      </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; align-items: stretch;">
         <div data-reveal data-delay="0" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 40px 32px; display: flex; flex-direction: column; gap: 18px; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;" style-hover="transform: scale(1.02); border-color: rgba(200,215,230,0.45); box-shadow: 0 12px 44px rgba(150,180,210,0.12);">
           <img src="uploads/stock-exterior-wash.jpg" alt="Foam wash on an SUV rear quarter panel" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; object-position: center 55%; border-radius: 12px;">
@@ -211,7 +205,7 @@
           <button onClick="{{ a.pick }}" style="padding: 10px 22px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all .25s ease; background: {{ a.bg }}; color: {{ a.fg }}; border: 1px solid {{ a.bc }};" style-hover="border-color: #8ab4d8;">{{ a.label }}</button>
         </sc-for>
       </div>
-      <p data-reveal style="margin: 20px auto 0; text-align: center; color: #7b838c; font-size: 14px; font-weight: 300;">Final price depends on vehicle size and condition. Text a photo of your vehicle for an exact quote.</p>
+      <p data-reveal style="margin: 20px auto 0; text-align: center; color: #7b838c; font-size: 14px; font-weight: 300;">This is pricing for a five-seater car. Every additional seat is $30 more.</p>
     </div>
   </section>
 
@@ -685,7 +679,7 @@ class Component extends DCLogic {
     return {
       phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
       cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
-      price1: p.ext + cerUp, price2: p.int + seatUp + petUp, price3: p.full + seatUp + petUp + cerUp, price3Was: 250 + seatUp + petUp + cerUp, pkgSeatOpts, addonOpts,
+      price1: p.ext + cerUp, price2: p.int + petUp, price3: p.full + petUp + cerUp, price3Was: 250 + petUp + cerUp, pkgSeatOpts, addonOpts,
       estDisp: this.state.estDisp, pkgOpts,
       tCards, faqs,
       revPrev: () => { const el = document.getElementById('rev-scroll'); if (el) el.scrollBy({ left: -420, behavior: 'smooth' }); },
