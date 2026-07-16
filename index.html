@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Mobile Auto Detailing in Tri Cities WA | Badger Mountain Detailing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Premium mobile car detailing delivered to your driveway. Serving Kennewick, Richland, Pasco, and the greater Tri Cities area. Text us to book your detail today.">
+  <meta property="og:title" content="Badger Mountain Detailing | Mobile Auto Detailing in Tri Cities WA">
+  <meta property="og:description" content="Showroom shine, delivered to your driveway. Premium mobile detailing serving Kennewick, Richland, Pasco, and West Richland.">
+  <meta property="og:image" content="uploads/IMG_3993.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Badger Mountain Detailing | Mobile Auto Detailing in Tri Cities WA">
+  <meta name="twitter:description" content="Premium mobile car detailing delivered to your driveway in the Tri Cities.">
+  <meta name="twitter:image" content="uploads/IMG_3993.jpg">
+  <link rel="icon" type="image/png" href="uploads/favicon-round-2.png">
+  <link rel="apple-touch-icon" href="uploads/apple-touch-icon-round-2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"Badger Mountain Detailing","description":"Premium mobile auto detailing serving the Tri Cities, WA area.","telephone":"+15095183151","areaServed":["Kennewick WA","Richland WA","Pasco WA","West Richland WA","Benton City WA","Finley WA","Burbank WA"],"priceRange":"$$","image":"uploads/IMG_3993.jpg"}
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #0a0b0d; color: #e8eaed; font-family: 'Outfit', 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #8ab4d8; text-decoration: none; }
+    a:hover { color: #b3d1ea; }
+    input, select, textarea, button { font-family: 'Outfit', sans-serif; }
+    @keyframes bmdShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+    @keyframes bmdHeroIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+    @keyframes bmdPulseRing { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.18); opacity: 0; } }
+    @keyframes bmdDot { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
+    @keyframes bmdHeroFade { 0%, 20% { opacity: 1; } 26%, 94% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes bmdRiseIn { from { opacity: 0; transform: translateY(46px) scale(0.98); filter: blur(10px); } 60% { filter: blur(0); } to { opacity: 1; transform: none; filter: none; } }
+    @keyframes bmdPopIn { from { opacity: 0; transform: translateY(26px) scale(0.85); } to { opacity: 1; transform: none; } }
+    @keyframes bmdPanelIn { from { opacity: 0; transform: translateX(70px) scale(0.95) rotate(1.2deg); } to { opacity: 1; transform: none; } }
+    @keyframes bmdHeaderIn { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: none; } }
+    .bmd-line { display: block; animation: bmdRiseIn .9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .bmd-line:nth-child(1) { animation-delay: .05s; }
+    .bmd-line:nth-child(2) { animation-delay: .17s; }
+    .bmd-line:nth-child(3) { animation-delay: .29s; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; } }
+  </style>
+</helmet>
+
+<div data-screen-label="Landing" style="min-width: 320px; overflow-x: hidden; background: #0a0b0d;">
+
+  <!-- 0. HEADER — brand + tappable phone on every screen -->
+  <header data-screen-label="Header" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 7vw; background: #08090b; border-bottom: 1px solid rgba(255,255,255,0.07); animation: bmdHeaderIn .6s cubic-bezier(0.22, 1, 0.36, 1) both;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <img src="uploads/IMG_3993.jpg" alt="Badger Mountain Detailing logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c6ccd2;">Badger Mountain Detailing</span>
+    </div>
+    <a href="{{ telHref }}" style="display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; color: #ffffff; white-space: nowrap;">{{ phoneDisplay }}</a>
+  </header>
+
+  <!-- 1. HERO — big type left, framed photo fade panel right -->
+  <section id="hero" data-screen-label="Hero" style="position: relative; min-height: 78vh; display: flex; flex-wrap: wrap; gap: clamp(28px, 4vw, 56px); overflow: hidden; background: radial-gradient(ellipse at 30% 20%, #12161d, #08090b 70%); padding: 56px 7vw 64px;">
+    <div style="flex: 1.15 1 460px; display: flex; flex-direction: column; justify-content: center; gap: 30px;">
+      <h1 style="margin: 0; font-size: clamp(40px, 5.6vw, 86px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; color: #ffffff;"><span class="bmd-line">Mobile detailing</span><span class="bmd-line">in the Tri&#8209;Cities.</span><span class="bmd-line">We come to you.</span></h1>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <button onClick="{{ openBook }}" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 44px; border-radius: 999px; background: #ffffff; color: #0d0f12; font-weight: 800; font-size: 18px; letter-spacing: 0.02em; border: none; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; animation: bmdPopIn .7s cubic-bezier(0.34, 1.56, 0.64, 1) .55s both;" style-hover="transform: translateY(-3px); box-shadow: 0 10px 38px rgba(190,215,240,0.4); color: #0d0f12;">Book a Detail</button>
+        <span style="font-size: 17px; letter-spacing: 0.06em; color: #9aa3ad; font-weight: 400; animation: bmdRiseIn .8s cubic-bezier(0.22, 1, 0.36, 1) .68s both;">Kennewick &middot; Richland &middot; Pasco &middot; West Richland</span>
+      </div>
+    </div>
+    <div style="flex: 0.85 1 380px; min-height: 52vh; display: flex; animation: bmdPanelIn 1s cubic-bezier(0.22, 1, 0.36, 1) .3s both;">
+      <div style="position: relative; width: 100%; border-radius: 26px; overflow: hidden; border: 3px solid rgba(255,255,255,0.92); box-shadow: 0 24px 80px rgba(0,0,0,0.55);">
+        <img src="uploads/ammon-after-hd.jpg" alt="Freshly detailed dark gray Audi A5 in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: bmdHeroFade 20s ease-in-out infinite;">
+        <img src="uploads/terri-bmw-front-hd.jpg" alt="Detailed gray BMW X1 at golden hour in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: bmdHeroFade 20s ease-in-out infinite; animation-delay: -15s;">
+        <img src="uploads/ammon-quarter-hd.jpg" alt="Washed Audi A5 front three-quarter view" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: bmdHeroFade 20s ease-in-out infinite; animation-delay: -10s;">
+        <img src="uploads/debbie-exterior-3.jpg" alt="Washed black Ford Expedition shining in the driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; animation: bmdHeroFade 20s ease-in-out infinite; animation-delay: -5s;">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TRUST BAR -->
+  <section data-screen-label="Trust bar" style="border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); background: linear-gradient(180deg, #0e1013, #0a0b0d); padding: 28px 24px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 48px; color: #aeb6bf; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;" data-reveal>
+      <span>Fully Mobile — We Come to You</span><span style="color: #3b434c;">•</span>
+      <span>Serving All of Tri&#8209;Cities</span><span style="color: #3b434c;">•</span>
+      <span>Satisfaction Guaranteed</span>
+    </div>
+    <div style="max-width: 900px; margin: 30px auto 4px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center;">
+      <div data-reveal data-delay="0">
+        <div data-count="{{ cars }}" data-suffix="+" style="font-size: 44px; font-weight: 800; color: #f2f4f6;">0</div>
+        <div style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c;">Cars Detailed</div>
+      </div>
+      <div data-reveal data-delay="120">
+        <div data-count="{{ rating }}" data-decimals="1" data-suffix="★" style="font-size: 44px; font-weight: 800; color: #f2f4f6;">0</div>
+        <div style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c;">Star Rating</div>
+      </div>
+      <div data-reveal data-delay="240">
+        <div data-count="{{ years }}" style="font-size: 44px; font-weight: 800; color: #f2f4f6;">0</div>
+        <div style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c;">Years Serving Tri&#8209;Cities</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2b. RECENT WORK CAROUSEL -->
+  <section data-screen-label="Recent work" style="padding: 64px 7vw 56px; background: #0a0b0d; overflow: hidden;">
+    <h2 data-reveal style="margin: 0 0 30px; text-align: center; font-size: clamp(26px, 3vw, 36px); font-weight: 700; color: #f2f4f6;">Recent Work</h2>
+    <!-- carousel tiles: swap srcs for new photos as they come in -->
+    <div id="work-strip" style="position: relative; height: clamp(120px, 16vw, 190px); width: 100%;">
+      <img src="uploads/ammon-after-hd.jpg" alt="Detailed dark gray Audi A5 in a Tri-Cities driveway" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 58%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/interior-wheel.jpg" alt="Detailed Audi TT steering wheel and dashboard" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 45%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/ammon-quarter-hd.jpg" alt="Freshly washed Audi A5 front three-quarter view" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 55%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/interior-console.jpg" alt="Spotless center console after an interior detail" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 40%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/evan-truck-front.jpg" alt="Freshly detailed silver Ford F-150 in a Tri-Cities driveway" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 45%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/debbie-seats.jpg" alt="Conditioned leather seats in a Ford Expedition after a full interior detail" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 50%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/exterior-front.jpg" alt="Front view of a freshly detailed Audi A5" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 62%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/debbie-exterior-3.jpg" alt="Washed black Ford Expedition shining in the driveway" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 55%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/terri-bmw-front-hd.jpg" alt="Detailed gray BMW X1 at golden hour in a Tri-Cities driveway" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 55%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+      <img src="uploads/terri-bmw-back-hd.jpg" alt="Glossy tailgate of a detailed BMW X1 at sunset" style="position: absolute; top: 50%; left: 50%; width: clamp(92px, 12vw, 150px); aspect-ratio: 1/1; object-fit: cover; object-position: center 55%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); transform: translate(-50%,-50%); will-change: transform, opacity;">
+    </div>
+  </section>
+
+  <!-- 3. HOW IT WORKS -->
+  <section data-screen-label="How it works" style="padding: 100px 24px; max-width: 1100px; margin: 0 auto;">
+    <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">How It Works</h2>
+    <p data-reveal style="margin: 0 auto 56px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 520px;">Three steps between your car and a showroom finish — anywhere in Kennewick, Richland, or Pasco.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;">
+      <div data-reveal data-delay="0" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 36px 30px;">
+        <div style="font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: #8ab4d8;">STEP 1</div>
+        <h3 style="margin: 12px 0 10px; font-size: 23px; font-weight: 600; color: #f2f4f6;">Text Us Your Car</h3>
+        <p style="margin: 0; color: #9aa3ad; font-weight: 300; line-height: 1.6;">Send us your vehicle's make and model, plus a photo if you want an exact quote.</p>
+      </div>
+      <div data-reveal data-delay="140" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 36px 30px;">
+        <div style="font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: #8ab4d8;">STEP 2</div>
+        <h3 style="margin: 12px 0 10px; font-size: 23px; font-weight: 600; color: #f2f4f6;">Pick a Time</h3>
+        <p style="margin: 0; color: #9aa3ad; font-weight: 300; line-height: 1.6;">We'll confirm a time that works for you, at your home or office.</p>
+      </div>
+      <div data-reveal data-delay="280" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 36px 30px;">
+        <div style="font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: #8ab4d8;">STEP 3</div>
+        <h3 style="margin: 12px 0 10px; font-size: 23px; font-weight: 600; color: #f2f4f6;">We Make It Shine</h3>
+        <p style="margin: 0; color: #9aa3ad; font-weight: 300; line-height: 1.6;">We show up with everything needed and leave your car looking showroom fresh in about 3 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICES -->
+  <section id="services" data-screen-label="Services" style="padding: 90px 24px 70px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Detailing Packages</h2>
+      <p data-reveal style="margin: 0 auto 56px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 520px;">Premium products, professional results — at your driveway.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; align-items: stretch;">
+        <div data-reveal data-delay="0" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 40px 32px; display: flex; flex-direction: column; gap: 18px; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;" style-hover="transform: scale(1.02); border-color: rgba(200,215,230,0.45); box-shadow: 0 12px 44px rgba(150,180,210,0.12);">
+          <img src="uploads/stock-exterior-wash.jpg" alt="Foam wash on an SUV rear quarter panel" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; object-position: center 55%; border-radius: 12px;">
+          <h3 style="margin: 0; font-size: 24px; font-weight: 600; color: #f2f4f6;">Exterior Refresh</h3>
+          <div><div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Starting at</div>
+          <div style="font-size: 38px; font-weight: 800; color: #dfe4e9;">${{ price1 }}</div></div>
+          <ul style="margin: 0; padding: 0 0 0 18px; color: #9aa3ad; font-weight: 300; line-height: 2;">
+            <li>Hand wash</li><li>Wheel &amp; tire cleaning</li><li>Tire shine</li><li>Windows</li>
+          </ul>
+        </div>
+        <div data-reveal data-delay="140" style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 20px; padding: 40px 32px; display: flex; flex-direction: column; gap: 18px; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;" style-hover="transform: scale(1.02); border-color: rgba(200,215,230,0.45); box-shadow: 0 12px 44px rgba(150,180,210,0.12);">
+          <img src="uploads/stock-interior-dash.jpg" alt="Detailer wiping a dashboard screen with microfiber cloth" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px;">
+          <h3 style="margin: 0; font-size: 24px; font-weight: 600; color: #f2f4f6;">Interior Revival</h3>
+          <div><div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Starting at</div>
+          <div style="font-size: 38px; font-weight: 800; color: #dfe4e9;">${{ price2 }}</div></div>
+          <ul style="margin: 0; padding: 0 0 0 18px; color: #9aa3ad; font-weight: 300; line-height: 2;">
+            <li>Full vacuum</li><li>Wipe down of all surfaces</li><li>Interior windows</li><li>Carpet &amp; seat shampoo</li>
+          </ul>
+        </div>
+        <div data-reveal data-delay="280" style="position: relative; background: linear-gradient(170deg, #151a22, #0e1116); border: 1px solid rgba(138,180,216,0.5); border-radius: 20px; padding: 40px 32px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 8px 44px rgba(110,160,210,0.14); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;" style-hover="transform: scale(1.03); border-color: #a9c9e6; box-shadow: 0 16px 60px rgba(130,180,225,0.28);">
+          <div style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: linear-gradient(160deg, #cfe0ef, #8ab4d8); color: #0b1119; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap;">Most Popular</div>
+          <img src="uploads/stock-full-shine.jpg" alt="Hand polishing a glossy trunk lid with a sponge" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; object-position: center 40%; border-radius: 12px;">
+          <h3 style="margin: 0; font-size: 24px; font-weight: 600; color: #f2f4f6;">Full Detail</h3>
+          <div><div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Starting at</div>
+          <div style="font-size: 38px; font-weight: 800; background: linear-gradient(110deg, #cfe0ef, #ffffff, #8ab4d8); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: bmdShine 6s linear infinite;">${{ price3 }}</div></div>
+          <ul style="margin: 0; padding: 0 0 0 18px; color: #aeb6bf; font-weight: 300; line-height: 2;">
+            <li>Everything in both packages</li><li>Clay bar treatment</li><li>Wax or sealant</li>
+          </ul>
+        </div>
+      </div>
+      <div data-reveal style="margin: 30px auto 0; display: flex; justify-content: center; align-items: center; gap: 10px 14px; flex-wrap: wrap;">
+        <span style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Add-ons</span>
+        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Pet hair removal</span>
+        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Headlight restoration</span>
+        <span style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #aeb6bf; font-size: 14px;">Ceramic coating</span>
+      </div>
+      <p data-reveal style="margin: 20px auto 0; text-align: center; color: #7b838c; font-size: 14px; font-weight: 300;">Final price depends on vehicle size and condition. Text a photo of your vehicle for an exact quote.</p>
+    </div>
+  </section>
+
+  <!-- 5. ESTIMATOR -->
+  <section id="estimator" data-screen-label="Quote estimator" style="padding: 90px 24px; max-width: 760px; margin: 0 auto;">
+    <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Instant Estimate</h2>
+    <p data-reveal style="margin: 0 auto 44px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px;">Pick your vehicle and package for a ballpark price.</p>
+    <div data-reveal style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 22px; padding: 40px 34px; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Vehicle Type</div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <sc-for list="{{ vehicleOpts }}" as="v" hint-placeholder-count="3">
+            <button onClick="{{ v.pick }}" style="padding: 12px 26px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ v.bg }}; color: {{ v.fg }}; border: 1px solid {{ v.bc }};" style-hover="border-color: #8ab4d8;">{{ v.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Package</div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <sc-for list="{{ pkgOpts }}" as="p" hint-placeholder-count="3">
+            <button onClick="{{ p.pick }}" style="padding: 12px 26px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ p.bg }}; color: {{ p.fg }}; border: 1px solid {{ p.bc }};" style-hover="border-color: #8ab4d8;">{{ p.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px;">
+        <div>
+          <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Estimated Price</div>
+          <div style="font-size: 52px; font-weight: 800; background: linear-gradient(110deg, #cfe0ef, #ffffff, #8ab4d8); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: bmdShine 6s linear infinite;">${{ estDisp }}</div>
+        </div>
+        <button onClick="{{ sendToForm }}" style="padding: 15px 30px; border-radius: 999px; background: linear-gradient(160deg, #f2f4f6, #b9c0c8); color: #0d0f12; font-weight: 700; font-size: 16px; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; transition: transform .25s ease, box-shadow .25s ease;" style-hover="transform: translateY(-3px); box-shadow: 0 10px 38px rgba(190,215,240,0.35);">Book This Estimate</button>
+      </div>
+      <p style="margin: -10px 0 0; color: #6d757e; font-size: 13px; font-weight: 300;">Final price confirmed after we see your vehicle. Estimates only.</p>
+    </div>
+  </section>
+
+  <!-- 6. BEFORE / AFTER -->
+  <section data-screen-label="Before and after" style="padding: 90px 24px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 980px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">The Badger Mountain Difference</h2>
+      <p data-reveal style="margin: 0 auto 44px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 540px;">Drag the divider to compare. Real results from real Tri&#8209;Cities driveways.</p>
+      <div data-reveal id="ba-wrap" style="position: relative; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); aspect-ratio: 4 / 3; max-height: 640px; margin: 0 auto; cursor: ew-resize; touch-action: pan-y; user-select: none; box-shadow: 0 20px 70px rgba(0,0,0,0.5);">
+        <img src="uploads/ammon-after-hd.jpg" alt="Audi A5 glossy and freshly detailed in a Tri-Cities driveway" draggable="false" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%;">
+        <div id="ba-before" style="position: absolute; inset: 0; width: 50%; overflow: hidden;">
+          <img src="uploads/ammon-before-hd.jpg" alt="Audi A5 dusty and dull before detailing" draggable="false" style="position: absolute; top: 0; left: 0; height: 100%; object-fit: cover; object-position: center 55%;">
+          <div style="position: absolute; top: 18px; left: 18px; background: rgba(10,11,13,0.72); backdrop-filter: blur(4px); color: #cfd5db; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 999px;">Before</div>
+        </div>
+        <div style="position: absolute; top: 18px; right: 18px; background: rgba(10,11,13,0.72); backdrop-filter: blur(4px); color: #cfe0ef; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 999px;">After</div>
+        <div id="ba-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(138,180,216,0.9)); box-shadow: 0 0 18px rgba(160,200,235,0.7);">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: rgba(12,14,17,0.85); border: 1.5px solid rgba(220,232,242,0.85); display: flex; align-items: center; justify-content: center; color: #e8eaed; font-size: 17px; letter-spacing: 2px; backdrop-filter: blur(4px);">⟨⟩</div>
+        </div>
+      </div>
+      <p data-reveal style="margin: 20px auto 0; text-align: center; color: #6d757e; font-size: 13px;">Audi A5, exterior detail — same car, same driveway, same day.</p>
+    </div>
+  </section>
+
+  <!-- 7. WHY MOBILE -->
+  <section data-screen-label="Why mobile" style="padding: 100px 24px; max-width: 1080px; margin: 0 auto;">
+    <div style="display: flex; align-items: center; gap: clamp(32px, 5vw, 64px); flex-wrap: wrap;">
+      <div data-reveal style="flex: 1 1 380px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
+        <img src="uploads/stock-pressure-wash.jpg" alt="Pressure washing foam off a black sedan in a driveway" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div data-reveal style="flex: 1 1 340px;">
+        <h2 style="margin: 0 0 20px; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Why Mobile Detailing?</h2>
+        <p style="margin: 0; color: #aeb6bf; font-weight: 300; font-size: clamp(18px, 2.2vw, 22px); line-height: 1.7; text-wrap: pretty;">No driving to a shop. No waiting rooms. We detail your car at your home or office in Richland, Kennewick, or Pasco while you go about your day — and text you when it's shining.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. SERVICE AREA MAP -->
+  <section id="area" data-screen-label="Service area map" style="padding: 90px 24px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 980px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Proudly Serving the Tri&#8209;Cities and Surrounding Areas</h2>
+      <p data-reveal style="margin: 0 auto 48px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 17px; max-width: 640px;">Mobile detailing delivered within 20 miles of the Tri&#8209;Cities: Kennewick, Richland, Pasco, West Richland, Benton City, Finley, Burbank, and beyond.</p>
+      <div data-reveal style="perspective: 1200px;">
+        <div id="map-panel" style="position: relative; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: radial-gradient(ellipse at 45% 40%, #121722 0%, #0b0d11 70%); box-shadow: 0 24px 80px rgba(0,0,0,0.55); transition: transform .2s ease-out; will-change: transform;">
+          <svg viewBox="0 0 800 560" style="display: block; width: 100%; height: auto;" role="img" aria-label="Stylized map of the Tri-Cities service area with a 20 mile radius">
+            <defs>
+              <filter id="riverGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="b"></feGaussianBlur>
+                <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+              </filter>
+            </defs>
+            <circle cx="430" cy="260" r="228" fill="rgba(120,170,215,0.05)"></circle>
+            <circle cx="430" cy="260" r="228" fill="none" stroke="rgba(150,195,235,0.55)" stroke-width="1.5" stroke-dasharray="10 9"></circle>
+            <circle cx="430" cy="260" r="228" fill="none" stroke="rgba(150,195,235,0.35)" stroke-width="1.5" style="animation: bmdPulseRing 3.6s ease-out infinite; transform-box: fill-box; transform-origin: center;"></circle>
+            <path d="M 330 0 C 342 80, 350 140, 380 212 C 412 284, 500 300, 598 310 C 660 316, 706 332, 756 372" fill="none" stroke="rgba(130,180,225,0.8)" stroke-width="5" stroke-linecap="round" filter="url(#riverGlow)"></path>
+            <path d="M 36 262 C 140 250, 262 240, 374 224" fill="none" stroke="rgba(130,180,225,0.55)" stroke-width="3.5" stroke-linecap="round" filter="url(#riverGlow)"></path>
+            <path d="M 800 176 C 732 216, 686 268, 636 306" fill="none" stroke="rgba(130,180,225,0.55)" stroke-width="3.5" stroke-linecap="round" filter="url(#riverGlow)"></path>
+            <text x="300" y="96" fill="rgba(150,190,225,0.5)" font-size="12" font-family="Outfit" transform="rotate(72 300 96)">Columbia River</text>
+            <text x="70" y="288" fill="rgba(150,190,225,0.45)" font-size="12" font-family="Outfit">Yakima River</text>
+            <text x="690" y="228" fill="rgba(150,190,225,0.45)" font-size="12" font-family="Outfit" transform="rotate(-32 690 228)">Snake River</text>
+            <g><circle cx="300" cy="190" r="9" fill="#a9cdec" style="animation: bmdDot 2.6s ease-in-out infinite;"><title>Richland</title></circle>
+              <circle cx="300" cy="190" r="16" fill="none" stroke="rgba(170,205,236,0.4)" stroke-width="1.5"></circle>
+              <text x="300" y="162" fill="#dfe8f1" font-size="18" font-weight="600" font-family="Outfit" text-anchor="middle">Richland</text></g>
+            <g><circle cx="520" cy="170" r="9" fill="#a9cdec" style="animation: bmdDot 2.6s ease-in-out infinite .5s;"><title>Pasco</title></circle>
+              <circle cx="520" cy="170" r="16" fill="none" stroke="rgba(170,205,236,0.4)" stroke-width="1.5"></circle>
+              <text x="520" y="142" fill="#dfe8f1" font-size="18" font-weight="600" font-family="Outfit" text-anchor="middle">Pasco</text></g>
+            <g><circle cx="410" cy="330" r="9" fill="#a9cdec" style="animation: bmdDot 2.6s ease-in-out infinite 1s;"><title>Kennewick</title></circle>
+              <circle cx="410" cy="330" r="16" fill="none" stroke="rgba(170,205,236,0.4)" stroke-width="1.5"></circle>
+              <text x="410" y="368" fill="#dfe8f1" font-size="18" font-weight="600" font-family="Outfit" text-anchor="middle">Kennewick</text></g>
+            <g fill="rgba(190,205,218,0.55)" font-size="13" font-family="Outfit">
+              <circle cx="222" cy="176" r="5" fill="rgba(170,205,236,0.5)"><title>West Richland</title></circle><text x="210" y="200" text-anchor="middle">West Richland</text>
+              <circle cx="112" cy="232" r="5" fill="rgba(170,205,236,0.5)"><title>Benton City</title></circle><text x="112" y="212" text-anchor="middle">Benton City</text>
+              <circle cx="510" cy="398" r="5" fill="rgba(170,205,236,0.5)"><title>Finley</title></circle><text x="510" y="422" text-anchor="middle">Finley</text>
+              <circle cx="648" cy="336" r="5" fill="rgba(170,205,236,0.5)"><title>Burbank</title></circle><text x="648" y="360" text-anchor="middle">Burbank</text>
+            </g>
+            <g><path d="M 296 432 L 316 402 L 328 418 L 338 404 L 356 432 Z" fill="none" stroke="rgba(200,214,226,0.7)" stroke-width="2" stroke-linejoin="round"></path>
+              <text x="326" y="454" fill="rgba(200,214,226,0.7)" font-size="13" font-family="Outfit" text-anchor="middle">Badger Mtn</text></g>
+          </svg>
+          <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="background: rgba(14,18,24,0.8); backdrop-filter: blur(6px); border: 1px solid rgba(150,195,235,0.4); color: #cfe0ef; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 18px; border-radius: 999px; white-space: nowrap;">20&#8209;mile service radius</div>
+            <div style="color: #8b939c; font-size: 13px; font-weight: 300;">We come to you, anywhere in the circle.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. TESTIMONIALS -->
+  <section data-screen-label="Testimonials" style="padding: 100px 24px; max-width: 860px; margin: 0 auto;">
+    <h2 data-reveal style="margin: 0 0 48px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">What Tri&#8209;Cities Drivers Say</h2>
+    <div data-reveal style="position: relative; min-height: 340px;">
+      <sc-for list="{{ tSlides }}" as="t" hint-placeholder-count="1">
+        <div style="position: absolute; inset: 0; display: flex; gap: 32px; align-items: center; flex-wrap: wrap; justify-content: center; opacity: {{ t.op }}; transition: opacity .8s ease; pointer-events: {{ t.pe }};">
+          <div style="width: 240px; height: 240px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0; background: repeating-linear-gradient(45deg, #12151a 0 12px, #0e1116 12px 24px); display: flex; align-items: center; justify-content: center;">
+            <sc-if value="{{ t.img }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ t.img }}" alt="{{ t.alt }}" style="width: 240px; height: 240px; object-fit: cover;">
+            </sc-if>
+            <sc-if value="{{ t.noImg }}" hint-placeholder-val="{{ false }}">
+              <span style="font-family: ui-monospace, monospace; font-size: 12px; color: #5d656e; text-align: center; padding: 12px;">customer car photo</span>
+            </sc-if>
+          </div>
+          <div style="flex: 1; min-width: 260px; max-width: 480px;">
+            <div style="color: #8ab4d8; font-size: 20px; letter-spacing: 4px;">★★★★★</div>
+            <p style="margin: 16px 0 18px; font-size: 20px; font-weight: 300; line-height: 1.65; color: #d6dbe0; text-wrap: pretty;">"{{ t.quote }}"</p>
+            <div style="font-weight: 600; color: #f2f4f6;">{{ t.name }}</div>
+            <div style="color: #7b838c; font-size: 14px; font-weight: 300;">{{ t.city }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 28px;">
+      <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="3">
+        <button onClick="{{ d.pick }}" aria-label="Show testimonial" style="width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; padding: 0; transition: background .3s ease; background: {{ d.bg }};"></button>
+      </sc-for>
+    </div>
+    <p style="margin: 24px auto 0; text-align: center; color: #5d656e; font-size: 12px; font-family: ui-monospace, monospace;">two placeholder reviews remain — send real ones and they'll be swapped in</p>
+  </section>
+
+  <!-- 9b. ABOUT -->
+  <section id="about" data-screen-label="About" style="padding: 90px 24px; max-width: 980px; margin: 0 auto;">
+    <div style="display: flex; gap: 44px; align-items: center; flex-wrap: wrap;">
+      <div data-reveal style="width: 280px; height: 340px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0; background: repeating-linear-gradient(45deg, #12151a 0 12px, #0e1116 12px 24px); display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <span style="font-family: ui-monospace, monospace; font-size: 12px; color: #5d656e; text-align: center; padding: 16px;">owner photo with the setup<br>— send one and it goes here</span>
+      </div>
+      <div data-reveal style="flex: 1; min-width: 280px;">
+        <h2 style="margin: 0 0 18px; font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; color: #f2f4f6;">Owner-operated, Tri&#8209;Cities born</h2>
+        <p style="margin: 0 0 14px; color: #aeb6bf; font-weight: 300; font-size: 17px; line-height: 1.7;">Badger Mountain Detailing is one local detailer, not a crew. The person you text is the person who shows up, and every car gets treated like it's the only one on the schedule that day.</p>
+        <p style="margin: 0 0 22px; color: #aeb6bf; font-weight: 300; font-size: 17px; line-height: 1.7;">The guarantee is simple: you look the car over before you pay. Not happy? It gets made right first.</p>
+        <button onClick="{{ openBook }}" style="display: inline-flex; align-items: center; padding: 14px 32px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #e8eaed; font-weight: 600; font-size: 16px; border: 1px solid rgba(255,255,255,0.28); cursor: pointer; transition: transform .25s ease, border-color .25s ease;" style-hover="transform: translateY(-2px); border-color: rgba(255,255,255,0.6);">Book a Detail</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <section data-screen-label="FAQ" style="padding: 90px 24px; background: linear-gradient(180deg, #0c0e11, #0a0b0d); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 760px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 44px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Questions, Answered</h2>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+          <div data-reveal style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid {{ f.bc }}; border-radius: 16px; overflow: hidden; transition: border-color .3s ease;">
+            <button onClick="{{ f.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; cursor: pointer; padding: 22px 26px; text-align: left; color: #f2f4f6; font-size: 18px; font-weight: 600;">
+              <span>{{ f.q }}</span>
+              <span style="color: #8ab4d8; font-size: 20px; transition: transform .35s ease; transform: rotate({{ f.rot }}); flex-shrink: 0;">+</span>
+            </button>
+            <div style="display: grid; grid-template-rows: {{ f.rows }}; transition: grid-template-rows .4s ease;">
+              <div style="overflow: hidden;">
+                <p style="margin: 0; padding: 0 26px 22px; color: #9aa3ad; font-weight: 300; line-height: 1.65;">{{ f.a }}</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. BOOKING FORM -->
+  <section id="book" data-screen-label="Booking form" style="padding: 100px 24px; max-width: 660px; margin: 0 auto;">
+    <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Get Your Free Quote</h2>
+    <p data-reveal style="margin: 0 auto 44px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 17px;">Tell us about your vehicle and we'll text you back fast.</p>
+    <form data-reveal onSubmit="{{ submitForm }}" style="display: flex; flex-direction: column; gap: 18px; background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 22px; padding: 40px 34px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;">
+        <input id="bk-name" required placeholder="Name" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+        <input id="bk-phone" required type="tel" placeholder="Phone" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+      </div>
+      <input id="bk-vehicle" required placeholder="Vehicle Year, Make &amp; Model" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;">
+        <select id="bk-package" value="{{ formPkg }}" onChange="{{ setFormPkg }}" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease; appearance: none;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+          <option>Exterior Refresh</option>
+          <option>Interior Revival</option>
+          <option>Full Detail</option>
+        </select>
+        <input id="bk-date" type="date" aria-label="Preferred date" style="padding: 14px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease; color-scheme: dark;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
+      </div>
+      <textarea id="bk-msg" rows="4" placeholder="Anything we should know? (pet hair, condition, parking...)" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; resize: vertical; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);"></textarea>
+      <button type="submit" style="margin-top: 6px; padding: 17px; border-radius: 999px; background: linear-gradient(160deg, #f2f4f6, #b9c0c8); color: #0d0f12; font-weight: 800; font-size: 17px; letter-spacing: 0.02em; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; transition: transform .25s ease, box-shadow .25s ease;" style-hover="transform: translateY(-3px); box-shadow: 0 10px 38px rgba(190,215,240,0.35);">Request My Quote</button>
+      <p style="margin: 4px 0 0; text-align: center; color: #7b838c; font-size: 14px; font-weight: 300;">Prefer to text? Message us directly at <a href="{{ smsHref }}" style="color: #8ab4d8; font-weight: 600;">{{ phoneDisplay }}</a> and we'll get back to you fast.</p>
+    </form>
+  </section>
+
+  <!-- 12. FOOTER -->
+  <footer data-screen-label="Footer" style="border-top: 1px solid rgba(255,255,255,0.08); background: #08090b; padding: 60px 24px 40px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 60px; justify-content: space-between;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 300px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <img src="uploads/IMG_3993.jpg" alt="Badger Mountain Detailing logo" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.15);">
+          <div style="font-weight: 700; font-size: 18px; color: #f2f4f6; line-height: 1.25;">Badger Mountain<br>Detailing</div>
+        </div>
+        <p style="margin: 0; color: #7b838c; font-size: 14px; font-weight: 300;">Owned and operated locally in the Tri&#8209;Cities.</p>
+      </div>
+      <div>
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6d757e; font-weight: 600; margin-bottom: 14px;">Service Area</div>
+        <div style="color: #9aa3ad; font-weight: 300; font-size: 15px; line-height: 2;">Kennewick · Richland · Pasco<br>West Richland · Benton City<br>Finley · Burbank</div>
+      </div>
+      <div>
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6d757e; font-weight: 600; margin-bottom: 14px;">Contact</div>
+        <a href="{{ smsHref }}" style="color: #cfe0ef; font-weight: 600; font-size: 17px;">{{ phoneDisplay }}</a>
+        <div style="color: #7b838c; font-size: 14px; font-weight: 300; margin-top: 12px;">By appointment, 7 days a week.<br>We accept Venmo, cash, and check<br>after the job is done.</div>
+        <button onClick="{{ openBook }}" style="margin-top: 18px; display: inline-flex; align-items: center; padding: 13px 30px; border-radius: 999px; background: #ffffff; color: #0d0f12; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: transform .25s ease;" style-hover="transform: translateY(-2px); color: #0d0f12;">Book a Detail</button>
+      </div>
+    </div>
+    <div style="max-width: 1100px; margin: 44px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); color: #545c65; font-size: 13px; font-weight: 300; text-align: center;">© 2026 Badger Mountain Detailing · Mobile Auto Detailing in Tri&#8209;Cities, WA</div>
+  </footer>
+
+  <!-- BOOKING WIZARD -->
+  <sc-if value="{{ bkOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 90; background: rgba(5,6,8,0.78); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 20px;">
+      <div style="width: min(560px, 100%); background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; padding: 32px 30px; display: flex; flex-direction: column; gap: 24px; max-height: 90vh; overflow-y: auto; box-shadow: 0 30px 90px rgba(0,0,0,0.6);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="font-size: 21px; font-weight: 700; color: #f2f4f6;">Book a Detail</div>
+            <div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b939c; margin-top: 5px;">{{ bkStepLabel }}</div>
+          </div>
+          <button onClick="{{ closeBook }}" aria-label="Close" style="background: none; border: none; color: #8b939c; font-size: 28px; cursor: pointer; line-height: 1; padding: 0 4px;">&times;</button>
+        </div>
+        <sc-if value="{{ bkS1 }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-size: 17px; color: #d6dbe0;">What are we detailing?</div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <sc-for list="{{ bkTypeOpts }}" as="o" hint-placeholder-count="4">
+                <button onClick="{{ o.pick }}" style="padding: 13px 28px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ o.bg }}; color: {{ o.fg }}; border: 1px solid {{ o.bc }};" style-hover="border-color: #8ab4d8;">{{ o.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ bkS2 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-size: 17px; color: #d6dbe0;">How many seats?</div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <sc-for list="{{ bkSeatOpts }}" as="o" hint-placeholder-count="4">
+                <button onClick="{{ o.pick }}" style="padding: 13px 28px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ o.bg }}; color: {{ o.fg }}; border: 1px solid {{ o.bc }};" style-hover="border-color: #8ab4d8;">{{ o.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ bkS3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-size: 17px; color: #d6dbe0;">Interior, exterior, or the works?</div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <sc-for list="{{ bkScopeOpts }}" as="o" hint-placeholder-count="3">
+                <button onClick="{{ o.pick }}" style="padding: 13px 28px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ o.bg }}; color: {{ o.fg }}; border: 1px solid {{ o.bc }};" style-hover="border-color: #8ab4d8;">{{ o.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ bkS4 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 17px; color: #d6dbe0;">All set — here's your text:</div>
+            <div style="background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px 20px; color: #cfe0ef; font-size: 16px; line-height: 1.55;">{{ bkMsg }}</div>
+            <a href="{{ bkSmsHref }}" style="display: flex; justify-content: center; align-items: center; padding: 16px; border-radius: 999px; background: #ffffff; color: #0d0f12; font-weight: 800; font-size: 17px; transition: transform .25s ease, box-shadow .25s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 10px 38px rgba(190,215,240,0.4); color: #0d0f12;">Send Text</a>
+            <div style="color: #6d757e; font-size: 13px; text-align: center;">Opens your messaging app with the text ready — just hit send.</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ bkShowBack }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ bkBack }}" style="align-self: flex-start; background: none; border: none; color: #8ab4d8; font-size: 15px; font-weight: 600; cursor: pointer; padding: 0;">&larr; Back</button>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- MOBILE STICKY BAR -->
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(10,11,13,0.85); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.12);">
+      <a href="{{ smsHref }}" style="display: flex; justify-content: center; align-items: center; min-height: 50px; border-radius: 999px; background: linear-gradient(160deg, #f2f4f6, #b9c0c8); color: #0d0f12; font-weight: 800; font-size: 17px;">Text to Book — {{ phoneDisplay }}</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5095183151&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business&quot;},&quot;carsDetailed&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:150,&quot;min&quot;:0,&quot;max&quot;:10000,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;rating&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:5.0,&quot;min&quot;:1,&quot;max&quot;:5,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;yearsServing&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Stats&quot;},&quot;price1&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:99,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;price2&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:149,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;},&quot;price3&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:219,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Pricing&quot;}}">
+class Component extends DCLogic {
+  state = { vehicle: 'SUV', pkg: 'full', estDisp: 0, faqOpen: 0, tIdx: 0, isMobile: false, formPkg: 'Full Detail', bkOpen: false, bkStep: 1, bkType: null, bkSeats: null, bkScope: null };
+
+  prices() {
+    return { ext: this.props.price1 ?? 99, int: this.props.price2 ?? 149, full: this.props.price3 ?? 219 };
+  }
+  estimate(vehicle, pkg) {
+    const mult = { Sedan: 1, SUV: 1.15, Truck: 1.25 };
+    return Math.round((this.prices()[pkg] * mult[vehicle]) / 5) * 5;
+  }
+  animateEst(to) {
+    cancelAnimationFrame(this._raf);
+    const from = this.state.estDisp, t0 = performance.now(), dur = 450;
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      this.setState({ estDisp: Math.round(from + (to - from) * e) });
+      if (k < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+  pick(key, val) {
+    const next = { ...this.state, [key]: val };
+    this.setState({ [key]: val });
+    this.animateEst(this.estimate(next.vehicle, next.pkg));
+  }
+  scrollToId(id) {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
+  }
+
+  componentDidMount() {
+    this.setState({ estDisp: this.estimate(this.state.vehicle, this.state.pkg) });
+    // responsive flag
+    const mq = window.matchMedia('(max-width: 760px)');
+    const setMq = () => this.setState({ isMobile: mq.matches });
+    mq.addEventListener('change', setMq); setMq();
+    // scroll reveal
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target, d = +(el.dataset.delay || 0);
+        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, d);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+    els.forEach((el) => {
+      el.style.transition = 'opacity .8s ease, transform .8s ease';
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.88) {
+        el.style.opacity = '0'; el.style.transform = 'translateY(26px)';
+      }
+      io.observe(el);
+    });
+    // counters
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target; cio.unobserve(el);
+        const target = parseFloat(el.dataset.count || '0'), dec = +(el.dataset.decimals || 0), suf = el.dataset.suffix || '';
+        const t0 = performance.now(), dur = 1600;
+        const tick = (t) => {
+          const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+          el.textContent = (target * e).toFixed(dec) + suf;
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach((el) => cio.observe(el));
+    // before/after slider
+    const wrap = document.getElementById('ba-wrap');
+    if (wrap) {
+      const before = document.getElementById('ba-before'), handle = document.getElementById('ba-handle');
+      const innerImg = before.querySelector('img');
+      const sync = () => { innerImg.style.width = wrap.getBoundingClientRect().width + 'px'; };
+      sync(); window.addEventListener('resize', sync);
+      const setPct = (clientX) => {
+        const r = wrap.getBoundingClientRect();
+        const pct = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
+        before.style.width = pct + '%'; handle.style.left = pct + '%';
+      };
+      wrap.addEventListener('pointerdown', (e) => {
+        wrap.setPointerCapture(e.pointerId); setPct(e.clientX);
+        const mv = (ev) => setPct(ev.clientX);
+        const up = () => { wrap.removeEventListener('pointermove', mv); wrap.removeEventListener('pointerup', up); };
+        wrap.addEventListener('pointermove', mv); wrap.addEventListener('pointerup', up);
+      });
+    }
+    // map parallax (desktop, fine pointer only)
+    const panel = document.getElementById('map-panel');
+    if (panel && window.matchMedia('(pointer: fine)').matches) {
+      const parent = panel.parentElement;
+      parent.addEventListener('mousemove', (e) => {
+        if (window.innerWidth < 900) return;
+        const r = panel.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        panel.style.transform = `rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+      });
+      parent.addEventListener('mouseleave', () => { panel.style.transform = 'none'; });
+    }
+    // hero work carousel — 5 visible squares, center highlighted, advances every 3s
+    const strip = document.getElementById('work-strip');
+    if (strip) {
+      const tiles = Array.from(strip.children);
+      const n = tiles.length;
+      let wIdx = 0;
+      const prevSlots = new Array(n).fill(null);
+      const layout = (animate) => {
+        const w = strip.getBoundingClientRect().width;
+        const size = Math.min(w / 6.5, 175);        // tile edge, sized so 5 fit with gaps
+        const spacing = (w - size) / 4;             // end tiles flush with strip edges
+        strip.style.height = size * 1.58 + 'px';
+        tiles.forEach((el, i) => {
+          let slot = (((i - wIdx) % n) + n) % n;
+          if (slot > n - 3) slot -= n; // range -2..3 for n=6
+          const jump = prevSlots[i] !== null && Math.abs(slot - prevSlots[i]) > 1;
+          el.style.width = size + 'px';
+          el.style.transition = (!animate || jump) ? 'none' : 'transform .6s ease, opacity .6s ease';
+          el.style.transform = `translate(-50%,-50%) translateX(${slot * spacing}px) scale(${slot === 0 ? 1.55 : 0.88})`;
+          el.style.opacity = (slot < -2 || slot > 2) ? '0' : (slot === 0 ? '1' : '0.32');
+          el.style.zIndex = slot === 0 ? '2' : '1';
+          prevSlots[i] = slot;
+        });
+      };
+      layout(false);
+      window.addEventListener('resize', () => layout(false));
+      this._wsTimer = setInterval(() => { wIdx = (wIdx + 1) % n; layout(true); }, 3000);
+    }
+    // testimonial autorotate
+    this._tTimer = setInterval(() => this.setState((s) => ({ tIdx: (s.tIdx + 1) % 3 })), 6000);
+  }
+  componentWillUnmount() { clearInterval(this._tTimer); clearInterval(this._wsTimer); cancelAnimationFrame(this._raf); }
+
+  renderVals() {
+    const digits = String(this.props.phone ?? '5095183151').replace(/\D/g, '');
+    const phoneDisplay = digits.length === 10 ? `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}` : digits;
+    const smsHref = `sms:+1${digits}?&body=${encodeURIComponent("Hi! I'd like a detailing quote. My vehicle: ")}`;
+    const p = this.prices();
+    const seg = (active) => active
+      ? { bg: 'linear-gradient(160deg, #e8edf2, #aebac6)', fg: '#0d0f12', bc: 'rgba(255,255,255,0.5)' }
+      : { bg: 'rgba(255,255,255,0.04)', fg: '#aeb6bf', bc: 'rgba(255,255,255,0.14)' };
+    const vehicleOpts = ['Sedan', 'Truck', 'SUV'].map((label) => ({ label, ...seg(this.state.vehicle === label), pick: () => this.pick('vehicle', label) }));
+    const pkgNames = { ext: 'Exterior Refresh', int: 'Interior Revival', full: 'Full Detail' };
+    const pkgOpts = Object.keys(pkgNames).map((k) => ({ label: pkgNames[k], ...seg(this.state.pkg === k), pick: () => this.pick('pkg', k) }));
+    const quotes = [
+      { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour" },
+      { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder — Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
+      { quote: "Two kids, one dog, endless crumbs — and the interior looks brand new. Worth every penny. We'll be repeat customers in Pasco.", name: 'Placeholder — Jenna', city: 'Pasco, WA', img: 'uploads/debbie-trunk-after.jpg', alt: 'Spotless vacuumed cargo area after a full interior detail' },
+    ];
+    const tSlides = quotes.map((q, i) => ({ ...q, noImg: !q.img, op: this.state.tIdx === i ? 1 : 0, pe: this.state.tIdx === i ? 'auto' : 'none' }));
+    const tDots = quotes.map((_, i) => ({ bg: this.state.tIdx === i ? '#8ab4d8' : 'rgba(255,255,255,0.18)', pick: () => { clearInterval(this._tTimer); this.setState({ tIdx: i }); } }));
+    const faqData = [
+      ['Do I need to provide anything?', 'Just access to water and a power outlet. We bring everything else: all products, tools, and equipment.'],
+      ['How long does a detail take?', "Around 3 hours on average, depending on your vehicle's size and condition. We'll give you a time estimate when you book."],
+      ['Do I need to be home?', "Nope. As long as we can access your vehicle, water, and power, you can go about your day. We'll text you when it's done."],
+      ['What if it rains?', "We'll reach out to reschedule at no charge. Weather happens, and we'd rather deliver a perfect detail than a rushed one."],
+      ['Where do you go?', 'We serve the Tri-Cities and surrounding areas within a 20 mile radius, including Kennewick, Richland, Pasco, West Richland, Benton City, Finley, and Burbank.'],
+      ['How do I pay?', "We accept Venmo, cash, and check after the job is done and you've seen the results."],
+    ];
+    const faqs = faqData.map(([q, a], i) => {
+      const open = this.state.faqOpen === i;
+      return { q, a, rows: open ? '1fr' : '0fr', rot: open ? '45deg' : '0deg', bc: open ? 'rgba(138,180,216,0.45)' : 'rgba(255,255,255,0.08)', toggle: () => this.setState({ faqOpen: open ? null : i }) };
+    });
+    // booking wizard
+    const bkTypeOpts = ['Sedan', 'SUV', 'Truck', 'Van'].map((label) => ({ label, ...seg(this.state.bkType === label), pick: () => this.setState({ bkType: label, bkStep: 2 }) }));
+    const bkSeatOpts = ['2', '4', '5', '7+'].map((label) => ({ label, ...seg(this.state.bkSeats === label), pick: () => this.setState({ bkSeats: label, bkStep: 3 }) }));
+    const bkScopeOpts = ['Interior only', 'Exterior only', 'Full detail'].map((label) => ({ label, ...seg(this.state.bkScope === label), pick: () => this.setState({ bkScope: label, bkStep: 4 }) }));
+    const bkScopePhrase = { 'Interior only': 'an interior detail', 'Exterior only': 'an exterior detail', 'Full detail': 'a full detail' }[this.state.bkScope] || 'a detail';
+    const bkSeatsPhrase = this.state.bkSeats === '7+' ? '7+ seat' : `${this.state.bkSeats}-seater`;
+    const bkMsg = `Hey! I'm interested in getting ${bkScopePhrase} on my ${bkSeatsPhrase} ${(this.state.bkType || 'car').toLowerCase()}.`;
+    const bkStepLabel = { 1: 'Step 1 of 3 — Vehicle', 2: 'Step 2 of 3 — Seats', 3: 'Step 3 of 3 — Service', 4: 'Ready to send' }[this.state.bkStep];
+    return {
+      phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
+      cars: this.props.carsDetailed ?? 150, rating: this.props.rating ?? 5.0, years: this.props.yearsServing ?? 3,
+      price1: p.ext, price2: p.int, price3: p.full,
+      estDisp: this.state.estDisp, vehicleOpts, pkgOpts,
+      tSlides, tDots, faqs,
+      isMobile: this.state.isMobile, formPkg: this.state.formPkg,
+      setFormPkg: (e) => this.setState({ formPkg: e.target.value }),
+      scrollToBook: () => this.scrollToId('book'),
+      bkOpen: this.state.bkOpen, bkStepLabel, bkTypeOpts, bkSeatOpts, bkScopeOpts, bkMsg,
+      bkS1: this.state.bkStep === 1, bkS2: this.state.bkStep === 2, bkS3: this.state.bkStep === 3, bkS4: this.state.bkStep === 4,
+      bkSmsHref: `sms:+1${digits}?&body=${encodeURIComponent(bkMsg)}`,
+      bkShowBack: this.state.bkStep > 1,
+      bkBack: () => this.setState({ bkStep: Math.max(1, this.state.bkStep - 1) }),
+      openBook: () => this.setState({ bkOpen: true, bkStep: 1 }),
+      closeBook: () => this.setState({ bkOpen: false }),
+      sendToForm: () => {
+        const pkgNamesMap = { ext: 'Exterior Refresh', int: 'Interior Revival', full: 'Full Detail' };
+        this.setState({ formPkg: pkgNamesMap[this.state.pkg] });
+        const msg = document.getElementById('bk-msg');
+        if (msg && !msg.value) msg.value = `Estimator: ${this.state.vehicle}, ${pkgNamesMap[this.state.pkg]} — est. $${this.estimate(this.state.vehicle, this.state.pkg)}`;
+        this.scrollToId('book');
+      },
+      submitForm: (e) => {
+        e.preventDefault();
+        const g = (id) => (document.getElementById(id) || {}).value || '';
+        const body = `Quote request — Name: ${g('bk-name')} | Phone: ${g('bk-phone')} | Vehicle: ${g('bk-vehicle')} | Package: ${this.state.formPkg} | Preferred date: ${g('bk-date') || 'flexible'} | Notes: ${g('bk-msg') || 'none'}`;
+        window.location.href = `sms:+1${digits}?&body=${encodeURIComponent(body)}`;
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
