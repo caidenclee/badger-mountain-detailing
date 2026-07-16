@@ -216,13 +216,13 @@
   <!-- 5. ESTIMATOR -->
   <section id="estimator" data-screen-label="Quote estimator" style="padding: 90px 24px; max-width: 760px; margin: 0 auto;">
     <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Instant Estimate</h2>
-    <p data-reveal style="margin: 0 auto 44px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px;">Pick your vehicle and package for a ballpark price.</p>
+    <p data-reveal style="margin: 0 auto 44px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px;">Three quick taps for a ballpark price.</p>
     <div data-reveal style="background: linear-gradient(170deg, #11141a, #0d0f12); border: 1px solid rgba(255,255,255,0.09); border-radius: 22px; padding: 40px 34px; display: flex; flex-direction: column; gap: 28px;">
       <div style="display: flex; flex-direction: column; gap: 12px;">
-        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Vehicle Type</div>
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">How many seats?</div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <sc-for list="{{ vehicleOpts }}" as="v" hint-placeholder-count="3">
-            <button onClick="{{ v.pick }}" style="padding: 12px 26px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ v.bg }}; color: {{ v.fg }}; border: 1px solid {{ v.bc }};" style-hover="border-color: #8ab4d8;">{{ v.label }}</button>
+          <sc-for list="{{ pkgSeatOpts }}" as="s" hint-placeholder-count="4">
+            <button onClick="{{ s.pick }}" style="padding: 12px 26px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ s.bg }}; color: {{ s.fg }}; border: 1px solid {{ s.bc }};" style-hover="border-color: #8ab4d8;">{{ s.label }}</button>
           </sc-for>
         </div>
       </div>
@@ -233,6 +233,18 @@
             <button onClick="{{ p.pick }}" style="padding: 12px 26px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ p.bg }}; color: {{ p.fg }}; border: 1px solid {{ p.bc }};" style-hover="border-color: #8ab4d8;">{{ p.label }}</button>
           </sc-for>
         </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Add-ons</div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <sc-for list="{{ addonOpts }}" as="a" hint-placeholder-count="2">
+            <button onClick="{{ a.pick }}" style="padding: 12px 26px; border-radius: 999px; cursor: pointer; font-size: 16px; font-weight: 600; transition: all .25s ease; background: {{ a.bg }}; color: {{ a.fg }}; border: 1px solid {{ a.bc }};" style-hover="border-color: #8ab4d8;">{{ a.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #8b939c; font-weight: 600;">Your vehicle</div>
+        <input id="est-vehicle" placeholder="e.g. 2019 Ford F-150" style="padding: 15px 18px; border-radius: 12px; background: #0a0c0f; border: 1px solid rgba(255,255,255,0.12); color: #e8eaed; font-size: 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #8ab4d8; box-shadow: 0 0 0 3px rgba(138,180,216,0.18);">
       </div>
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px;">
         <div>
@@ -515,9 +527,14 @@ class Component extends DCLogic {
   prices() {
     return { ext: this.props.price1 ?? 114, int: this.props.price2 ?? 169, full: this.props.price3 ?? 199 };
   }
-  estimate(vehicle, pkg) {
-    const mult = { Sedan: 1, SUV: 1.15, Truck: 1.25 };
-    return Math.round((this.prices()[pkg] * mult[vehicle]) / 5) * 5;
+  estValue(s = this.state) {
+    const p = this.prices(), su = (s.pkgSeats - 5) * 30;
+    const pet = s.addPet ? 70 : 0, cer = s.addCeramic ? 200 : 0;
+    return s.pkg === 'ext' ? p.ext + cer : s.pkg === 'int' ? p.int + su + pet : p.full + su + pet + cer;
+  }
+  updateEst(next = {}) {
+    this.setState(next);
+    this.animateEst(this.estValue({ ...this.state, ...next }));
   }
   animateEst(to) {
     cancelAnimationFrame(this._raf);
@@ -529,18 +546,13 @@ class Component extends DCLogic {
     };
     this._raf = requestAnimationFrame(step);
   }
-  pick(key, val) {
-    const next = { ...this.state, [key]: val };
-    this.setState({ [key]: val });
-    this.animateEst(this.estimate(next.vehicle, next.pkg));
-  }
   scrollToId(id) {
     const el = document.getElementById(id);
     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 16, behavior: 'smooth' });
   }
 
   componentDidMount() {
-    this.setState({ estDisp: this.estimate(this.state.vehicle, this.state.pkg) });
+    this.updateEst({});
     // responsive flag
     const mq = window.matchMedia('(max-width: 760px)');
     const setMq = () => this.setState({ isMobile: mq.matches });
@@ -650,9 +662,8 @@ class Component extends DCLogic {
     const seg = (active) => active
       ? { bg: 'linear-gradient(160deg, #e8edf2, #aebac6)', fg: '#0d0f12', bc: 'rgba(255,255,255,0.5)' }
       : { bg: 'rgba(255,255,255,0.04)', fg: '#aeb6bf', bc: 'rgba(255,255,255,0.14)' };
-    const vehicleOpts = ['Sedan', 'Truck', 'SUV'].map((label) => ({ label, ...seg(this.state.vehicle === label), pick: () => this.pick('vehicle', label) }));
     const pkgNames = { ext: 'Exterior Refresh', int: 'Interior Revival', full: 'Full Detail' };
-    const pkgOpts = Object.keys(pkgNames).map((k) => ({ label: pkgNames[k], ...seg(this.state.pkg === k), pick: () => this.pick('pkg', k) }));
+    const pkgOpts = Object.keys(pkgNames).map((k) => ({ label: pkgNames[k], ...seg(this.state.pkg === k), pick: () => this.updateEst({ pkg: k }) }));
     const quotes = [
       { quote: "I had these guys work on my BMW today and they did an excellent job and were very friendly. This is a new start up business I believe. Let's give them a chance. They worked hard even in this heat!!!", name: 'Terri Woolery', city: 'Facebook review', img: 'uploads/terri-bmw-front-hd.jpg', alt: "Terri's detailed gray BMW X1 at golden hour" },
       { quote: 'Booked by text, he showed up on time at my office in Richland, and my truck was spotless by the end of my shift.', name: 'Placeholder — Mike', city: 'Richland, WA', img: 'uploads/evan-truck-side.jpg', alt: 'Detailed silver Ford F-150 parked in a Richland driveway' },
@@ -682,13 +693,13 @@ class Component extends DCLogic {
     const bkStepLabel = { 1: 'Step 1 of 3 — Vehicle', 2: 'Step 2 of 3 — Seats', 3: 'Step 3 of 3 — Service', 4: 'Ready to send' }[this.state.bkStep];
     // package seat selector: +$30 per seat above 5 on interior-related packages
     const seatUp = (this.state.pkgSeats - 5) * 30;
-    const pkgSeatOpts = [5, 6, 7, 8].map((n) => ({ label: `${n} seats`, ...seg(this.state.pkgSeats === n), pick: () => this.setState({ pkgSeats: n }) }));
+    const pkgSeatOpts = [5, 6, 7, 8].map((n) => ({ label: `${n} seats`, ...seg(this.state.pkgSeats === n), pick: () => this.updateEst({ pkgSeats: n }) }));
     // add-on toggles: pet hair on interior-related, ceramic on exterior-related packages
     const petUp = this.state.addPet ? 70 : 0;
     const cerUp = this.state.addCeramic ? 200 : 0;
     const addonOpts = [
-      { label: 'Pet hair removal — $70', ...seg(this.state.addPet), pick: () => this.setState({ addPet: !this.state.addPet }) },
-      { label: 'Ceramic coating — $200', ...seg(this.state.addCeramic), pick: () => this.setState({ addCeramic: !this.state.addCeramic }) },
+      { label: 'Pet hair removal — $70', ...seg(this.state.addPet), pick: () => this.updateEst({ addPet: !this.state.addPet }) },
+      { label: 'Ceramic coating — $200', ...seg(this.state.addCeramic), pick: () => this.updateEst({ addCeramic: !this.state.addCeramic }) },
     ];
     return {
       phoneDisplay, smsHref, telHref: `tel:+1${digits}`,
@@ -709,8 +720,12 @@ class Component extends DCLogic {
       sendToForm: () => {
         const pkgNamesMap = { ext: 'Exterior Refresh', int: 'Interior Revival', full: 'Full Detail' };
         this.setState({ formPkg: pkgNamesMap[this.state.pkg] });
+        const veh = (document.getElementById('est-vehicle') || {}).value || '';
+        const bkV = document.getElementById('bk-vehicle');
+        if (bkV && !bkV.value && veh) bkV.value = veh;
+        const adds = [this.state.addPet && 'pet hair removal', this.state.addCeramic && 'ceramic coating'].filter(Boolean).join(' + ');
         const msg = document.getElementById('bk-msg');
-        if (msg && !msg.value) msg.value = `Estimator: ${this.state.vehicle}, ${pkgNamesMap[this.state.pkg]} — est. $${this.estimate(this.state.vehicle, this.state.pkg)}`;
+        if (msg && !msg.value) msg.value = `Estimator: ${veh || 'my vehicle'}, ${pkgNamesMap[this.state.pkg]}, ${this.state.pkgSeats} seats${adds ? ', ' + adds : ''} — est. $${this.estValue()}`;
         this.scrollToId('book');
       },
       submitForm: (e) => {
