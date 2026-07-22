@@ -730,6 +730,19 @@
       window.addEventListener('resize', () => layout(false));
       setInterval(() => { wIdx = (wIdx + 1) % n; layout(true); }, 3000);
     }
+
+    // reviews carousel — auto-advance every 5s, loops back to the start
+    const revScroll = document.getElementById('rev-scroll');
+    if (revScroll) {
+      setInterval(() => {
+        const maxScroll = revScroll.scrollWidth - revScroll.clientWidth;
+        if (revScroll.scrollLeft >= maxScroll - 10) {
+          revScroll.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          revScroll.scrollBy({ left: 420, behavior: 'smooth' });
+        }
+      }, 5000);
+    }
   });
 
   document.getElementById('booking-modal').addEventListener('click', function (e) {
