@@ -65,6 +65,15 @@
     .bmd-line:nth-child(2) { animation-delay: .17s; }
     .bmd-line:nth-child(3) { animation-delay: .29s; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; } }
+    .bento-grid { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: auto 1fr 1fr; gap: 20px; }
+    .bento-audi { grid-column: 1 / -1; grid-row: 1; }
+    .bento-blue { grid-column: 1; grid-row: 2 / 4; }
+    .bento-ba { grid-column: 2; grid-row: 2; }
+    .bento-tires { grid-column: 2; grid-row: 3; }
+    @media (max-width: 700px) {
+      .bento-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+      .bento-audi, .bento-blue, .bento-ba, .bento-tires { grid-column: 1; grid-row: auto; }
+    }
   </style>
 </helmet>
 
@@ -215,21 +224,18 @@
     <div style="max-width: 1080px; margin: 0 auto;">
       <h2 data-reveal style="margin: 0 0 12px; text-align: center; font-size: clamp(30px, 4vw, 44px); font-weight: 700; color: #f2f4f6;">Every Angle, Fully Detailed</h2>
       <p data-reveal style="margin: 0 auto 44px; text-align: center; color: #9aa3ad; font-weight: 300; font-size: 18px; max-width: 560px;">Recent details, from every angle.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: start;">
-        <div data-reveal data-delay="0" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
+      <div class="bento-grid">
+        <div data-reveal data-delay="0" class="bento-audi" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
           <img src="uploads/audi-tt-angles.jpg" alt="Detailed gray Audi TT shown from three angles after a full detail" loading="lazy" style="display: block; width: 100%; height: auto;">
         </div>
-        <div data-reveal data-delay="140" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
-          <img src="uploads/blue-charger-angles.jpg" alt="Detailed blue Dodge Charger SRT shown from three angles after a full detail" loading="lazy" style="display: block; width: 100%; height: auto;">
+        <div data-reveal data-delay="140" class="bento-blue" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
+          <img src="uploads/blue-charger-angles.jpg" alt="Detailed blue Dodge Charger SRT shown from three angles after a full detail" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;">
         </div>
-        <div data-reveal data-delay="0" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
-          <img src="uploads/camry-before-after-1.jpg" alt="Toyota Camry front seat and console before and after an interior detail" loading="lazy" style="display: block; width: 100%; height: auto;">
+        <div data-reveal data-delay="200" class="bento-ba" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
+          <img src="uploads/camry-before-after-1.jpg" alt="Toyota Camry front seat and console before and after an interior detail" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;">
         </div>
-        <div data-reveal data-delay="140" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
-          <img src="uploads/camry-before-after-2.jpg" alt="Toyota Camry driver seat before and after an interior detail" loading="lazy" style="display: block; width: 100%; height: auto;">
-        </div>
-        <div data-reveal data-delay="280" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
-          <img src="uploads/camry-before-after-3.jpg" alt="Toyota Camry back seat before and after an interior detail" loading="lazy" style="display: block; width: 100%; height: auto;">
+        <div data-reveal data-delay="280" class="bento-tires" style="border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 20px 70px rgba(0,0,0,0.45);">
+          <img src="uploads/tires-collage.jpg" alt="Freshly dressed tires and wheels on four different detailed vehicles" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover;">
         </div>
       </div>
     </div>
