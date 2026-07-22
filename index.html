@@ -53,7 +53,7 @@
     input, select, textarea, button { font-family: 'Outfit', sans-serif; }
     @keyframes bmdShine { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
     @keyframes bmdHeroIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-    @keyframes bmdHeroFade { 0%, 20% { opacity: 1; } 26%, 94% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes bmdHeroFade { 0%, 16% { opacity: 1; } 26%, 90% { opacity: 0; } 100% { opacity: 1; } }
     @keyframes bmdRiseIn { from { opacity: 0; transform: translateY(46px) scale(0.98); filter: blur(10px); } 60% { filter: blur(0); } to { opacity: 1; transform: none; filter: none; } }
     @keyframes bmdPopIn { from { opacity: 0; transform: translateY(26px) scale(0.85); } to { opacity: 1; transform: none; } }
     @keyframes bmdPanelIn { from { opacity: 0; transform: translateX(70px) scale(0.95) rotate(1.2deg); } to { opacity: 1; transform: none; } }
@@ -90,12 +90,12 @@
     </div>
     <div style="flex: 0.85 1 380px; min-height: 52vh; display: flex; animation: bmdPanelIn 1s cubic-bezier(0.22, 1, 0.36, 1) .3s both;">
       <div style="position: relative; width: 100%; border-radius: 26px; overflow: hidden; border: 3px solid rgba(255,255,255,0.92); box-shadow: 0 24px 80px rgba(0,0,0,0.55);">
-        <img src="uploads/blue-charger-front-hd.jpg" alt="Freshly detailed blue Dodge Charger SRT Hellcat in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; animation: bmdHeroFade 30s ease-in-out infinite;">
-        <img src="uploads/ammon-after-hd.jpg" alt="Freshly detailed dark gray Audi A5 in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -25s;">
-        <img src="uploads/terri-bmw-front-hd.jpg" alt="Detailed gray BMW X1 at golden hour in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -20s;">
-        <img src="uploads/ammon-quarter-hd.jpg" alt="Washed Audi A5 front three-quarter view" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -15s;">
-        <img src="uploads/debbie-exterior-3.jpg" alt="Washed black Ford Expedition shining in the driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -10s;">
-        <img src="uploads/audi-tt-front-hd.jpg" alt="Freshly detailed gray Audi TT in a parking lot at golden hour" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -5s;">
+        <img src="uploads/blue-charger-front-hd.jpg" alt="Freshly detailed blue Dodge Charger SRT Hellcat in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 58%; opacity: 1; animation: bmdHeroFade 30s ease-in-out infinite;">
+        <img src="uploads/ammon-after-hd.jpg" alt="Freshly detailed dark gray Audi A5 in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; opacity: 0; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -25s;">
+        <img src="uploads/terri-bmw-front-hd.jpg" alt="Detailed gray BMW X1 at golden hour in a Tri-Cities driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; opacity: 0; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -20s;">
+        <img src="uploads/ammon-quarter-hd.jpg" alt="Washed Audi A5 front three-quarter view" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; opacity: 0; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -15s;">
+        <img src="uploads/debbie-exterior-3.jpg" alt="Washed black Ford Expedition shining in the driveway" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; opacity: 0; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -10s;">
+        <img src="uploads/audi-tt-front-hd.jpg" alt="Freshly detailed gray Audi TT in a parking lot at golden hour" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; animation: bmdHeroFade 30s ease-in-out infinite; animation-delay: -5s;">
       </div>
     </div>
   </section>
